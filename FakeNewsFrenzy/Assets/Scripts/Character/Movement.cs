@@ -3,54 +3,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float _Speed = 10;
     [SerializeField] private float _RollDistance = 2;
     [SerializeField] private float _RollSpeed = 2;
-    private Action doAction;
 
-    private void Start()
+    [SerializeField] private int _PlayerIndex = 0;
+
+    private bool isRolling = false;
+
+    private Vector3 _Dir= Vector2.zero;
+
+    public int GetPlayerIndex()
     {
-        SetModeMove();
-    }
+        return _PlayerIndex;
+    } 
 
     private void Update()
     {
-        if (doAction != null) doAction();
-
+        Move();
     }
 
-    private void SetModeVoid()
+    private void Move()
     {
-        doAction = DoActionVoid;
+        if (isRolling) return;
+        transform.position += _Dir * Time.deltaTime * _Speed;
     }
 
-    private void DoActionVoid()
+    public void SetDirVector(Vector3 lDir)
     {
-
+        _Dir = lDir;
     }
 
-    private void SetModeMove()
+    public void SetRoll()
     {
-        doAction = DoActionMove;
-    }
+        isRolling = true;
 
-    private void DoActionMove()
-    {
-        transform.position += Input.GetAxisRaw("Horizontal") * Vector3.right * Time.deltaTime * _Speed;
-        transform.position += Input.GetAxisRaw("Vertical") * Vector3.up * Time.deltaTime * _Speed;
-        if (Input.GetKeyDown(KeyCode.Space)) SetModeRoll();
-    }
-
-    private void SetModeRoll()
-    {
-        Vector3 lDir = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        lDir = lDir.normalized;
-
-        IEnumerator corountine = DoActionRoll(lDir);
-        SetModeVoid();
+        IEnumerator corountine = DoActionRoll(_Dir.normalized);
         StartCoroutine(corountine);
     }
 
@@ -65,6 +57,6 @@ public class Movement : MonoBehaviour
             yield return null;
         }
 
-        SetModeMove();
+        isRolling = false;
     }
 }
