@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 5453886261738243869, guid: 557c27450efa99442a5aa04bdb4e2336, type: 3}
   spread: 0
-  fireRate: 0
+  fireRate: 3
   power: 50
   bulletPerShot: 0

@@ -10,7 +10,10 @@ public class SO_BaseWeapon : ScriptableObject
 
     [SerializeField] protected float spread;
 
-    [SerializeField] protected float fireRate;
+    /// <summary>
+    /// Time between bullets.
+    /// </summary>
+    [SerializeField] public float fireRate;
 
     [SerializeField] protected float power;
 
