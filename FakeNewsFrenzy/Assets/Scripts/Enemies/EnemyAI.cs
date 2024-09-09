@@ -8,6 +8,8 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private Transform playerPos;
     [SerializeField] private NavMeshAgent navmeshAgent;
+
+    public bool playerDetected = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerPos != null)
+        if (playerPos != null && playerDetected == true)
         {
             navmeshAgent.SetDestination(playerPos.position);
         }
