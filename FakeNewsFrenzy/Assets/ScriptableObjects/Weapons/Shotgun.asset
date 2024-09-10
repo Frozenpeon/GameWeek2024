@@ -15,5 +15,6 @@ MonoBehaviour:
   bullet: {fileID: 5453886261738243869, guid: 557c27450efa99442a5aa04bdb4e2336, type: 3}
   spread: 20
   fireRate: 0.5
-  power: 20
+  power: 5000
   bulletPerShot: 20
+  objectDrop: {fileID: 0}

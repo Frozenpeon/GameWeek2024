@@ -13,6 +13,11 @@ public class WeaponHandler : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Shoot(0);
+        }
     }
 
     public void Shoot(int PlayerID = -1)
@@ -22,7 +27,7 @@ public class WeaponHandler : MonoBehaviour
         weapon.Fire(firePosiion.right, firePosiion.position);
         if (PlayerID != -1)
         {
-            RumbleManager.instance.StartShaking(PlayerID, weapon.power / 200, weapon.power / 200, 0.2f);
+            RumbleManager.instance.StartShaking(PlayerID, weapon.power / 400, weapon.power / 400, 0.1f);
         }
         elapsedTime = 0;
     }
