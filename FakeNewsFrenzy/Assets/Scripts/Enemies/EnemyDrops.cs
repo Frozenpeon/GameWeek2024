@@ -16,6 +16,8 @@ public class EnemyDrops : MonoBehaviour
     [SerializeField] private bool randomGrenadeDrop = true;
     [SerializeField] private int grenadeDropRate = 80;
 
+    [SerializeField] private GameObject weaponLoot;
+    private GameObject _WeaponLoot;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class EnemyDrops : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            onDeathDrop();
+            Destroy(gameObject  );
     }
 
     private void onDeathDrop()
@@ -35,10 +37,12 @@ public class EnemyDrops : MonoBehaviour
         if(randomWeaponDrop == true)
         {
             int weaponResult = Random.Range(0, 101);
-            if (weaponResult >= weaponDropRate)
+            if (weaponResult <= weaponDropRate)
             {
                 Debug.Log($"DroppingWeapon, result = {weaponResult}");
                 //Dropping logic
+                _WeaponLoot = Instantiate(weaponLoot);
+                _WeaponLoot.transform.position = transform.position;
             }
             else Debug.Log(weaponResult);
         }
@@ -46,7 +50,7 @@ public class EnemyDrops : MonoBehaviour
         if(randomGrenadeDrop == true)
         {
             int grenadeResult = Random.Range(0, 101);
-            if (grenadeResult >= grenadeDropRate)
+            if (grenadeResult <= grenadeDropRate)
             {
                 Debug.Log($"DroppingGrenade, result = {grenadeResult}");
                 //Dropping logic
@@ -54,5 +58,10 @@ public class EnemyDrops : MonoBehaviour
             else Debug.Log(grenadeResult);
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        onDeathDrop();
     }
 }
