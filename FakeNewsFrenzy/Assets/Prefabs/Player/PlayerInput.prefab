@@ -126,7 +126,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5801055568549142464}
         m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
-        m_MethodName: OnEquip
+        m_MethodName: onShoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -136,8 +136,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: de8dd42a-3175-4d67-ae56-a1f6f21447ac
-    m_ActionName: Player/Equip[/Keyboard/f]
+    m_ActionId: b76ec49c-7001-43ed-b6a8-ae9a2e4ae1c6
+    m_ActionName: Player/Shoot[/Mouse/leftButton,/DualSenseGamepadHID/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -155,3 +155,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f533749bca0244b96e3760a0d9be81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ShootAction: {fileID: 7580868870842619111, guid: 201698dd78c5f554e83f116116f6c684, type: 3}

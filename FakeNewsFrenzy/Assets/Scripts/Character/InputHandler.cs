@@ -9,13 +9,18 @@ public class InputHandler : MonoBehaviour
     private Movement _Movement;
     private PlayerInput _PlayerInput;
 
+    [SerializeField] private InputActionReference _ShootAction;
+
     private void Start()
     {
         _PlayerInput = GetComponent<PlayerInput>();
         Movement[] movers = FindObjectsOfType<Movement>();
         int index = _PlayerInput.playerIndex;
         _Movement = movers.FirstOrDefault(m => m.GetPlayerIndex() == index);
+    }
 
+    private void Update()
+    {
     }
 
     public void OnMove(InputAction.CallbackContext obj)
@@ -35,7 +40,6 @@ public class InputHandler : MonoBehaviour
     public void OnPush(InputAction.CallbackContext obj)
     {
         if (_Movement != null) _Movement.GetComponent<PushAttack>().OnAttack();
-
     }
 
     public void OnLook(InputAction.CallbackContext obj)
@@ -47,11 +51,15 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    public void OnEquip(InputAction.CallbackContext obj)
+    public void onShoot(InputAction.CallbackContext obj)
     {
         if (_Movement != null)
         {
-            _Movement.GetComponent<EquipWeapon>().EquipNewWeapon();
+            WeaponHandler wp = _Movement.GetComponentInChildren<WeaponHandler>();
+
+            if (wp == null) return;
+
+            _Movement.GetComponentInChildren<WeaponHandler>().isShooting = obj.ReadValue<float>() > 0;
         }
     }
 

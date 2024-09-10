@@ -161,8 +161,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3440975721420922907}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2925496, y: 0.30379605, z: 0.761631}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -170,7 +170,7 @@ Transform:
   - {fileID: 8594480151402467201}
   - {fileID: 2924505896406576205}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1268976291996773478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePosiion: {fileID: 2924505896406576205}
+  SOWeapon: {fileID: 11400000, guid: ccb14a64f94185d4290aa3a4a13e849d, type: 2}
   weapon: {fileID: 11400000, guid: ccb14a64f94185d4290aa3a4a13e849d, type: 2}
+  isShooting: 0
 --- !u!1 &8626536297098942781
 GameObject:
   m_ObjectHideFlags: 0

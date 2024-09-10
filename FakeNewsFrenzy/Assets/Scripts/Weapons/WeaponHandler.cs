@@ -7,17 +7,23 @@ public class WeaponHandler : MonoBehaviour
 {
     public Transform firePosiion;
 
+    [SerializeField]
+    private SO_BaseWeapon SOWeapon;
+    [HideInInspector]
     public SO_BaseWeapon weapon;
 
     private float elapsedTime;
+    [HideInInspector] public bool isShooting = false;
+
+    private void Start()
+    {
+        weapon = Instantiate(SOWeapon);
+    }
     void Update()
     {
+        if (isShooting) Shoot();
         elapsedTime += Time.deltaTime;
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Shoot(0);
-        }
     }
     /// <summary>
     /// Do not put a PlayerID if shooting from pc or if it's an enemy shooting
