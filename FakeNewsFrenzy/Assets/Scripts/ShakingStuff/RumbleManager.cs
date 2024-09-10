@@ -6,12 +6,19 @@ using UnityEngine.InputSystem;
 
 public class RumbleManager : MonoBehaviour
 {
-    public static RumbleManager isntance;
+    public static RumbleManager instance;
 
     private Coroutine RumblingCoroutinePlayerOne;
     private Coroutine RumblingCoroutinePlayerTwo;
 
-    private void Update()
+    private void Start()
+    {
+        if (instance == null) { 
+        instance = this;
+            }
+    }
+
+   /* private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
@@ -21,15 +28,14 @@ public class RumbleManager : MonoBehaviour
         {
             StartShaking(Gamepad.all[1], 1f, 1f, 1f);
         }
+    }*/
 
-    }
-
-    public void StartShaking(Gamepad pad, float highFrequency, float lowFrequency, float duration)
+    public void StartShaking(int padID, float highFrequency, float lowFrequency, float duration)
     {
-        
+        Gamepad pad = Gamepad.all[padID];
         pad.SetMotorSpeeds(highFrequency, lowFrequency);
 
-        if (pad.deviceId == 0)
+        if (padID == 0)
             RumblingCoroutinePlayerOne = StartCoroutine(StopRumble(duration, pad));
         else
             RumblingCoroutinePlayerTwo = StartCoroutine(StopRumble(duration, pad));
