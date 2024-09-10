@@ -35,6 +35,7 @@ public class EnemyDetection : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Player in range");
             _Player = collision.gameObject;
             isPlayerInRange = true;
         }
@@ -48,7 +49,6 @@ public class EnemyDetection : MonoBehaviour
             isPlayerInRange = false;
         }
     }
-
     private bool CheckForWalls()
     {
         _TargetPos = _Player.transform.position;
