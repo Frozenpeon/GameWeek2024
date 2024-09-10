@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Vector2 direction;
+    public Vector3 direction;
 
     public float baseSpeed = 1000f;
 
@@ -16,15 +16,15 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Rigidbody2D>().AddForce(direction * actualSpeed);
+        //GetComponent<Rigidbody>().AddForce(direction * actualSpeed);
     }
 
-    public void SetUp(Vector2 pDirection, float pPower)
+    public void SetUp(Vector3 pDirection, float pPower)
     {
         direction = pDirection;
         actualSpeed = pPower * baseSpeed;
-        GetComponent<Rigidbody2D>().AddForce(direction * actualSpeed);
-        transform.rotation = Quaternion.LookRotation(pDirection);
+        GetComponent<Rigidbody>().AddForce(direction * actualSpeed);
+        transform.rotation = Quaternion.LookRotation(pDirection, Vector3.up);
     }
 
     private void Update()
