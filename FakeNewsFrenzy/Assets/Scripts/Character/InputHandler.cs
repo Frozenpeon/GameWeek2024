@@ -20,12 +20,31 @@ public class InputHandler : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext obj)
     {
-        if (_Movement != null) _Movement.SetDirVector(new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y));
+        if (_Movement != null)
+        {
+            _Movement.SetDirVector(new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y));
+            _Movement.canMoveWithMouse = obj.control.ToString().Contains("Keyboard");
+        }
     }
     
     public void OnRoll(InputAction.CallbackContext obj)
     {
         if (_Movement != null) _Movement.SetRoll();
+    }
+
+    public void OnPush(InputAction.CallbackContext obj)
+    {
+        if (_Movement != null) _Movement.GetComponent<PushAttack>().OnAttack();
+
+    }
+
+    public void OnLook(InputAction.CallbackContext obj)
+    {
+        if(_Movement != null)
+        {
+            if (_Movement.canMoveWithMouse) return;
+            _Movement.MakePlayerLookAt(obj.ReadValue<Vector2>());
+        }
     }
 
 
