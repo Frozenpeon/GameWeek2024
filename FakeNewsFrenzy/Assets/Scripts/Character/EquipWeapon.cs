@@ -26,7 +26,8 @@ public class EquipWeapon : MonoBehaviour
         {
             _Weapon = Instantiate(newWeapon);
             _Weapon.transform.parent = transform;
-            _Weapon.transform.localPosition = Vector3.zero;
+            _Weapon.transform.localPosition = Vector3.zero; //Replace by correct position when sprites are done
+
             isOnWeapon = false;
             Destroy(lootToDestroy);
         }

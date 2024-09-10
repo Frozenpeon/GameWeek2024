@@ -30,10 +30,13 @@ public class EnemyDrops : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Used to debug and test
         if (Input.GetKeyDown(KeyCode.Space))
             onDeathDrop();
     }
 
+
+    //Call this method when the enemy dies
     private void onDeathDrop()
     {
 
