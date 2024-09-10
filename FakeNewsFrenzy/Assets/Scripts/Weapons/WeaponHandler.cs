@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponHandler : MonoBehaviour
 {
@@ -14,11 +15,15 @@ public class WeaponHandler : MonoBehaviour
         elapsedTime += Time.deltaTime;
     }
 
-    public void Shoot()
+    public void Shoot(int PlayerID = -1)
     {
         if (elapsedTime <= weapon.fireRate)
             return;
         weapon.Fire(firePosiion.right, firePosiion.position);
+        if (PlayerID != -1)
+        {
+           // RumbleManager.in
+        }
         elapsedTime = 0;
     }
 }
