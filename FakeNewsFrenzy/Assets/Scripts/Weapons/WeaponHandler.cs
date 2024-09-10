@@ -13,8 +13,16 @@ public class WeaponHandler : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-    }
 
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Shoot(0);
+        }
+    }
+    /// <summary>
+    /// Do not put a PlayerID if shooting from pc or if it's an enemy shooting
+    /// </summary>
+    /// <param name="PlayerID">aaa</param>
     public void Shoot(int PlayerID = -1)
     {
         if (elapsedTime <= weapon.fireRate)
@@ -22,7 +30,7 @@ public class WeaponHandler : MonoBehaviour
         weapon.Fire(firePosiion.right, firePosiion.position);
         if (PlayerID != -1)
         {
-            RumbleManager.instance.StartShaking(PlayerID, weapon.power / 200, weapon.power / 200, 0.2f);
+            RumbleManager.instance.StartShaking(PlayerID, weapon.power / 400, weapon.power / 400, 0.1f);
         }
         elapsedTime = 0;
     }
