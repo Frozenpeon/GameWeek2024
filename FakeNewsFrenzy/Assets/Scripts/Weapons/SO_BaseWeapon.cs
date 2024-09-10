@@ -20,6 +20,8 @@ public class SO_BaseWeapon : ScriptableObject
 
     [SerializeField] protected int bulletPerShot;
 
+    [SerializeField] public GameObject objectDrop;
+
     public void Fire(Vector3 pDirection, Vector3 pPosition)
     {
         float spreadValue = 0;
