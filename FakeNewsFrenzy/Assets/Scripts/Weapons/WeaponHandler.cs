@@ -7,9 +7,17 @@ public class WeaponHandler : MonoBehaviour
 {
     public Transform firePosiion;
 
+    [SerializeField]
+    private SO_BaseWeapon SOWeapon;
+    [HideInInspector]
     public SO_BaseWeapon weapon;
 
     private float elapsedTime;
+
+    private void Start()
+    {
+        weapon = Instantiate(SOWeapon);
+    }
     void Update()
     {
         elapsedTime += Time.deltaTime;

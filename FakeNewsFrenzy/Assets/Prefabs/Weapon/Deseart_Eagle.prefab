@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePosiion: {fileID: 3933235323612713673}
+  SOWeapon: {fileID: 11400000, guid: 84ae024ad42692044bf7f991146979c8, type: 2}
   weapon: {fileID: 11400000, guid: 84ae024ad42692044bf7f991146979c8, type: 2}
 --- !u!1 &2191794752495822833
 GameObject:
