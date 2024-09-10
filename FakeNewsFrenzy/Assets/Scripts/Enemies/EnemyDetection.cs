@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] private EnemyAI enemyAI;
-    private Vector3 _TargetPos;
+    public Vector3 _TargetPos;
     private Vector3 _TargetDirection;
     private bool isPlayerInRange = false;
     private bool isPlayerDetected = false;
@@ -20,6 +20,10 @@ public class EnemyDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_Player != null)
+        _TargetPos = _Player.transform.position;
+        enemyAI.playerPos = _TargetPos;
+
         // Only check for detection if the player has not been detected yet
         if (!isPlayerDetected)
         {
@@ -31,16 +35,18 @@ public class EnemyDetection : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !isPlayerDetected)
         {
+            Debug.Log("Player in range");
             _Player = collision.gameObject;
             isPlayerInRange = true;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -48,10 +54,8 @@ public class EnemyDetection : MonoBehaviour
             isPlayerInRange = false;
         }
     }
-
     private bool CheckForWalls()
     {
-        _TargetPos = _Player.transform.position;
         _TargetDirection = _TargetPos - transform.position;
 
         RaycastHit[] hits = Physics.RaycastAll(transform.position, _TargetDirection);
