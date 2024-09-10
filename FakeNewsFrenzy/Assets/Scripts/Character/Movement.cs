@@ -16,6 +16,9 @@ public class Movement : MonoBehaviour
     private bool isRolling = false;
 
     private Vector3 _Dir= Vector2.zero;
+    [HideInInspector] public bool canMoveWithMouse = false;
+
+    [SerializeField] private Camera _Cam;
 
     public int GetPlayerIndex()
     {
@@ -31,6 +34,20 @@ public class Movement : MonoBehaviour
     {
         if (isRolling) return;
         transform.position += _Dir * Time.deltaTime * _Speed;
+        if (!canMoveWithMouse) return;
+        Ray ray = _Cam.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(ray, out RaycastHit hitInfo))
+        {
+            Vector3 hitPoint = hitInfo.point;
+            transform.LookAt(new Vector3(hitPoint.x, transform.position.y,hitPoint.z));;
+        }
+    }
+
+    public void MakePlayerLookAt(Vector2 _Dir)
+    {
+        if (isRolling) return;
+
+        transform.LookAt(new Vector3(transform.position.x + _Dir.x, transform.position.y, transform.position.z + _Dir.y ));
     }
 
     public void SetDirVector(Vector3 lDir)
