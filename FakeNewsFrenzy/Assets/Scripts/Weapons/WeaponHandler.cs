@@ -22,7 +22,7 @@ public class WeaponHandler : MonoBehaviour
         weapon.Fire(firePosiion.right, firePosiion.position);
         if (PlayerID != -1)
         {
-           // RumbleManager.in
+            RumbleManager.instance.StartShaking(PlayerID, weapon.power / 200, weapon.power / 200, 0.2f);
         }
         elapsedTime = 0;
     }
