@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2141814035615256824}
   - component: {fileID: 8759860501510098851}
   - component: {fileID: 3861500266737910930}
+  - component: {fileID: -8909601148644114021}
   m_Layer: 0
   m_Name: ShotgunDrop
   m_TagString: Untagged
@@ -133,6 +134,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8909601148644114021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245571686393628309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e02ead97f54d94c9848a27b855fe42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inHandWeapon: {fileID: 3440975721420922907, guid: f5d230def5b9c2749875854b93e5cc08, type: 3}
 --- !u!1 &7037442373028748812
 GameObject:
   m_ObjectHideFlags: 0

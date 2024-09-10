@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3012194396185222008}
   - component: {fileID: 5308064691884092506}
   - component: {fileID: 2584192523358644068}
+  - component: {fileID: 4824866093980081212}
   m_Layer: 0
   m_Name: ARDrop
   m_TagString: Untagged
@@ -133,6 +134,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4824866093980081212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633961693336932874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e02ead97f54d94c9848a27b855fe42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inHandWeapon: {fileID: 1731259243678619051, guid: 7c641e48307be324199ad66412947fa5, type: 3}
 --- !u!1 &4562998500496984995
 GameObject:
   m_ObjectHideFlags: 0

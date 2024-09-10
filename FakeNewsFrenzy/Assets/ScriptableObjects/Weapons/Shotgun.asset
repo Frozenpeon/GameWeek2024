@@ -17,3 +17,4 @@ MonoBehaviour:
   fireRate: 0.5
   power: 20
   bulletPerShot: 20
+  objectDrop: {fileID: 5245571686393628309, guid: 970fefbc9ad64af40aedc2e3d5a45ce9, type: 3}

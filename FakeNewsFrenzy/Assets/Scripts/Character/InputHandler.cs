@@ -47,5 +47,13 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public void OnEquip(InputAction.CallbackContext obj)
+    {
+        if (_Movement != null)
+        {
+            Debug.Log("");
+        }
+    }
+
 
 }
