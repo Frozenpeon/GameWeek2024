@@ -12,11 +12,13 @@ public class WeaponHandler : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        if (elapsedTime > weapon.fireRate)
-        if (Input.GetKey(KeyCode.Mouse0)) 
-        {
-            weapon.Fire(transform.right, firePosiion.position);
-                elapsedTime = 0;
-        }
+    }
+
+    public void Shoot()
+    {
+        if (elapsedTime <= weapon.fireRate)
+            return;
+        weapon.Fire(firePosiion.right, firePosiion.position);
+        elapsedTime = 0;
     }
 }

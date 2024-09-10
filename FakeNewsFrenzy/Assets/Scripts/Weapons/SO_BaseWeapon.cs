@@ -20,13 +20,13 @@ public class SO_BaseWeapon : ScriptableObject
 
     [SerializeField] protected int bulletPerShot;
 
-    public void Fire(Vector2 pDirection, Vector2 pPosition)
+    public void Fire(Vector3 pDirection, Vector3 pPosition)
     {
         float spreadValue = 0;
         for (int i = 1; i <= bulletPerShot; i++) {
             spreadValue =  Random.Range(-spread, spread);
             GameObject go = Instantiate(bullet, pPosition, Quaternion.identity);     
-            go.GetComponent<Bullet>().SetUp((Quaternion.Euler(0, 0, spreadValue) * pDirection).normalized, power);
+            go.GetComponent<Bullet>().SetUp((Quaternion.Euler(0, spreadValue, 0) * pDirection).normalized, power);
         }
     }
 
