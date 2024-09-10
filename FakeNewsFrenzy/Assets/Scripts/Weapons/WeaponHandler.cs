@@ -19,7 +19,10 @@ public class WeaponHandler : MonoBehaviour
             Shoot(0);
         }
     }
-
+    /// <summary>
+    /// Do not put a PlayerID if shooting from pc or if it's an enemy shooting
+    /// </summary>
+    /// <param name="PlayerID">aaa</param>
     public void Shoot(int PlayerID = -1)
     {
         if (elapsedTime <= weapon.fireRate)
