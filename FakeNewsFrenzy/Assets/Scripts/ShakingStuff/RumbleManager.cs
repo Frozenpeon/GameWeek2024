@@ -7,16 +7,7 @@ using UnityEngine.InputSystem;
 public class RumbleManager : MonoBehaviour
 {
 
-
     private Coroutine RumblingCoroutine;
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            //StartShaking();
-        }
-    }
 
     public void StartShaking(Gamepad pad, float highFrequency, float lowFrequency, float duration)
     {
@@ -37,7 +28,7 @@ public class RumbleManager : MonoBehaviour
             yield return null;
         }
 
-        pad.SetMotorSpeeds(0f, 0f);
+        pad.ResetHaptics();
     }
 
 }
