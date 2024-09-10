@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float _Speed = 10;
+    [SerializeField] private float _Speed = 50;
     [SerializeField] private float _RollDistance = 2;
     [SerializeField] private float _RollSpeed = 2;
 
@@ -17,8 +17,16 @@ public class Movement : MonoBehaviour
 
     private Vector3 _Dir= Vector2.zero;
     [HideInInspector] public bool canMoveWithMouse = false;
+    private bool isBeingPushed = false;
 
     [SerializeField] private Camera _Cam;
+
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     public int GetPlayerIndex()
     {
@@ -32,8 +40,8 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        if (isRolling) return;
-        transform.position += _Dir * Time.deltaTime * _Speed;
+        if (isRolling || isBeingPushed) return;
+        rb.velocity = _Dir * _Speed;
         if (!canMoveWithMouse) return;
         Ray ray = _Cam.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out RaycastHit hitInfo))
@@ -57,10 +65,23 @@ public class Movement : MonoBehaviour
 
     public void SetRoll()
     {
+        if(isBeingPushed) return;
         isRolling = true;
 
         IEnumerator corountine = DoActionRoll(_Dir.normalized);
         StartCoroutine(corountine);
+    }
+
+    public void StartPush()
+    {
+        isBeingPushed = true;
+        StartCoroutine(WaitToBePush());
+    }
+
+    IEnumerator WaitToBePush()
+    {
+        yield return new WaitForSeconds(1.2f);
+        isBeingPushed = false;
     }
 
     IEnumerator DoActionRoll(Vector3 pDir)
@@ -68,9 +89,9 @@ public class Movement : MonoBehaviour
         float lCountDistance = 0;
         while(lCountDistance < _RollDistance)
         {
-            float lSpeed = _RollSpeed * Time.deltaTime;
-            lCountDistance += lSpeed;
-            transform.position += pDir * lSpeed;
+            float lSpeed = _RollSpeed;
+            lCountDistance += lSpeed * Time.deltaTime;
+            rb.velocity = pDir * lSpeed;
             yield return null;
         }
 
