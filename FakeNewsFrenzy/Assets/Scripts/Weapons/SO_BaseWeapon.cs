@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Weapon")]
@@ -21,8 +22,12 @@ public class SO_BaseWeapon : ScriptableObject
 
     public void Fire(Vector2 pDirection, Vector2 pPosition)
     {
-        GameObject go = Instantiate(bullet, pPosition, Quaternion.identity);
-        go.GetComponent<Bullet>().SetUp(pDirection, power);
+        float spreadValue = 0;
+        for (int i = 1; i <= bulletPerShot; i++) {
+            spreadValue =  Random.Range(-spread, spread);
+            GameObject go = Instantiate(bullet, pPosition, Quaternion.identity);     
+            go.GetComponent<Bullet>().SetUp((Quaternion.Euler(0, 0, spreadValue) * pDirection).normalized, power);
+        }
     }
 
 

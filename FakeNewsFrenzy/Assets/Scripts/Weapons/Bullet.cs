@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
         direction = pDirection;
         actualSpeed = pPower * baseSpeed;
         GetComponent<Rigidbody2D>().AddForce(direction * actualSpeed);
+        transform.rotation = Quaternion.LookRotation(pDirection);
     }
 
     private void Update()

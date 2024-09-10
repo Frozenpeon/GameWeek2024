@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
+    public Transform firePosiion;
+
     public SO_BaseWeapon weapon;
 
     private float elapsedTime;
@@ -13,7 +15,7 @@ public class WeaponHandler : MonoBehaviour
         if (elapsedTime > weapon.fireRate)
         if (Input.GetKey(KeyCode.Mouse0)) 
         {
-            weapon.Fire(transform.right, transform.position);
+            weapon.Fire(transform.right, firePosiion.position);
                 elapsedTime = 0;
         }
     }
