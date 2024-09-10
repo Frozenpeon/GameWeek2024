@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
 
-    [SerializeField] private Transform playerPos;
+    public Vector3 playerPos;
     [SerializeField] private NavMeshAgent navmeshAgent;
 
     public bool playerDetected = false;
@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (playerPos != null && playerDetected == true)
         {
-            navmeshAgent.SetDestination(playerPos.position);
+            navmeshAgent.SetDestination(playerPos);
         }
         
     }

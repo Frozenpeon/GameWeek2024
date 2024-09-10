@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponLoot : MonoBehaviour
 {
-    [SerializeField] private GameObject inHandWeapon;
+    [SerializeField] public GameObject inHandWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +16,5 @@ public class WeaponLoot : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            Debug.Log("Equip weapon");
-        }
     }
 }
