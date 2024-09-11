@@ -15,6 +15,8 @@ public class PlayerCamera : MonoBehaviour
 
     [SerializeField] private float _TimeToLerp = .5f;
 
+    public static float _CameraHeight = 30;
+
     private void Start()
     {
         cameras.Add(this);
@@ -69,7 +71,7 @@ public class PlayerCamera : MonoBehaviour
         {
             camOffset = GetCamOffset();
             transform.position= Vector3.Lerp(basePos,
-                                new Vector3(target.position.x + camOffset.x, 20, target.position.z + camOffset.z),
+                                new Vector3(target.position.x + camOffset.x, _CameraHeight, target.position.z + camOffset.z),
                                 _count / _TimeToLerp);
             _count += Time.deltaTime;
             yield return null;
@@ -77,13 +79,13 @@ public class PlayerCamera : MonoBehaviour
         doAction = DoActionFollow;
 
         camOffset = GetCamOffset();
-        transform.position = new Vector3(target.position.x + camOffset.x, 20, target.position.z + camOffset.z);
+        transform.position = new Vector3(target.position.x + camOffset.x, _CameraHeight, target.position.z + camOffset.z);
     }
 
     private void DoActionFollow()
     {
         Vector3 camOffset = GetCamOffset();
-        transform.position = new Vector3(target.position.x + camOffset.x, 20, target.position.z + camOffset.z);
+        transform.position = new Vector3(target.position.x + camOffset.x, _CameraHeight, target.position.z + camOffset.z);
     }
 
     private Vector3 GetCamOffset()
@@ -91,7 +93,7 @@ public class PlayerCamera : MonoBehaviour
         int factor = 1;
         if (target.GetComponent<Movement>().GetPlayerIndex() == 1) factor = -1;
 
-        float frustumHeight = 2.0f * 21 * Mathf.Tan(GetComponent<Camera>().fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float frustumHeight = 2.0f * _CameraHeight * Mathf.Tan(GetComponent<Camera>().fieldOfView * 0.5f * Mathf.Deg2Rad);
         float frustumWidth = frustumHeight * GetComponent<Camera>().aspect;
 
         Vector3 aspect = new Vector3(frustumWidth,0 ,frustumHeight) / 4;
