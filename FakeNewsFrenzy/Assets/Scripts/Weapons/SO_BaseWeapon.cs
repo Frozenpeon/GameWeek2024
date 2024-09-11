@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Weapon")]
 public class SO_BaseWeapon : ScriptableObject
 {
+    public WeaponType Type;
 
     [SerializeField] protected GameObject bullet;
 

@@ -68,7 +68,7 @@ public class InputHandler : MonoBehaviour
     {
         if (_Movement != null)
         {
-            _Movement.GetComponent<EquipWeapon>().EquipNewWeapon();
+            _Movement.GetComponent<EquipWeapon>().EquipNewWeapon(_PlayerInput.playerIndex);
         }
     }
 
