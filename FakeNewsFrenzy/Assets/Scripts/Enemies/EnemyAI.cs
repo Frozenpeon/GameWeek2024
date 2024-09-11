@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,22 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private NavMeshAgent navmeshAgent;
 
     public bool playerDetected = false;
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
+    // Juste appelle ça quand tu veux tirer en sah
+    private void Shoot()
+    {
+        transform.GetChild(0).GetComponent<EnemyWeaponPicker>().Shoot();
+    }
+
 
     // Update is called once per frame
     void Update()

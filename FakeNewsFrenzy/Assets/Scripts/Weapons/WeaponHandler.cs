@@ -12,7 +12,7 @@ public class WeaponHandler : MonoBehaviour
     [HideInInspector]
     public SO_BaseWeapon weapon;
 
-    private float elapsedTime;
+    public float elapsedTime;
     [HideInInspector] public bool isShooting = false;
 
     private void Start()

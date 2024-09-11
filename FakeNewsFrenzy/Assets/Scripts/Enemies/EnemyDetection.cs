@@ -11,12 +11,20 @@ public class EnemyDetection : MonoBehaviour
     private bool isPlayerDetected = false;
     private GameObject _Player;
 
+    public EnemyWeaponPicker EnemyWeaponPicker;
+
     // Start is called before the first frame update
     void Start()
     {
 
     }
 
+
+    //Pour montrer l'arme/passer le sprite en mode aggro
+    public void Aggro()
+    {
+        EnemyWeaponPicker.GoAggroVisual();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -42,6 +50,7 @@ public class EnemyDetection : MonoBehaviour
             Debug.Log("Player in range");
             _Player = collision.gameObject;
             isPlayerInRange = true;
+            Aggro();
         }
     }
 
