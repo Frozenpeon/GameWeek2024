@@ -26,9 +26,12 @@ public class Movement : MonoBehaviour
     public int GrenadeCount = 0;
     public int maxGrenades = 1;
 
+    public static List<Movement> movements = new List<Movement>(); 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        movements.Add(this);
         if (_PlayerIndex == 0)
             EquipWeapon.Player1GotaNade += AddANade;
         else
@@ -113,5 +116,10 @@ public class Movement : MonoBehaviour
         }
 
         isRolling = false;
+    }
+
+    private void OnDestroy()
+    {
+        movements.Remove(this);
     }
 }

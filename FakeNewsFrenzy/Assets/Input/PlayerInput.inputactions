@@ -258,6 +258,78 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "MainMenu",
+            "id": "a3daa2d0-84b9-4c30-8208-f21367ad548d",
+            "actions": [
+                {
+                    "name": "ChangeScreen",
+                    "type": "Button",
+                    "id": "b7b2a133-1bf1-475e-b422-88e36f124a59",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d666824f-7748-4ced-9b4a-9f28a3b2a387",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2577374-f132-486d-93d0-4a598f71704b",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c3efccd7-4348-4f3e-b19c-8624a4788b5e",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc1510d8-2061-498c-891b-9e8eb94640a7",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41600c65-d8c0-4471-a31e-ce8d60705b19",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

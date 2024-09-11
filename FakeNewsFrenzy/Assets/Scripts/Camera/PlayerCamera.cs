@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -12,9 +13,12 @@ public class PlayerCamera : MonoBehaviour
 
     [SerializeField] private Transform target;
 
+    [SerializeField] private float _TimeToLerp = .5f;
+
     private void Start()
     {
         cameras.Add(this);
+        doAction = DoActionBetween;
     }
 
     private void Update()
@@ -24,6 +28,22 @@ public class PlayerCamera : MonoBehaviour
 
     public void SetModeBetween()
     {
+        StopAllCoroutines();
+        StartCoroutine(LerpToBetween());
+    }
+
+    private IEnumerator LerpToBetween()
+    {
+        Vector3 basePos = transform.position;
+        float _count = 0;
+
+        while (_count < _TimeToLerp)
+        {
+            transform.position = Vector3.Lerp(basePos, CameraManager.GetInstance().GetMidPos(), _count / _TimeToLerp);
+            _count += Time.deltaTime ;
+            yield return null;
+        }
+        transform.position = CameraManager.GetInstance().GetMidPos();
         doAction = DoActionBetween;
     }
 
@@ -34,16 +54,51 @@ public class PlayerCamera : MonoBehaviour
 
     public void SetModeFollow()
     {
+        StopAllCoroutines();
+        StartCoroutine(LerpToFollow());
+    }
+
+    private IEnumerator LerpToFollow()
+    {
+        Vector3 basePos = transform.position;
+        float _count = 0;
+
+        Vector3 camOffset;
+
+        while (_count < _TimeToLerp)
+        {
+            camOffset = GetCamOffset();
+            transform.position= Vector3.Lerp(basePos,
+                                new Vector3(target.position.x + camOffset.x, 20, target.position.z + camOffset.z),
+                                _count / _TimeToLerp);
+            _count += Time.deltaTime;
+            yield return null;
+        }
         doAction = DoActionFollow;
+
+        camOffset = GetCamOffset();
+        transform.position = new Vector3(target.position.x + camOffset.x, 20, target.position.z + camOffset.z);
     }
 
     private void DoActionFollow()
     {
-        int factor = 1;
-        if(target.GetComponent<Movement>().GetPlayerIndex() == 1) factor = -1;
+        Vector3 camOffset = GetCamOffset();
+        transform.position = new Vector3(target.position.x + camOffset.x, 20, target.position.z + camOffset.z);
+    }
 
-        Vector2 camOffset = new Vector2(CameraManager.GetInstance().GetVecBetweenPlayer().x, CameraManager.GetInstance().GetVecBetweenPlayer().z).normalized * 5;
-        transform.position = new Vector3(target.position.x + camOffset.x * factor, 20, target.position.z + camOffset.y * factor);
+    private Vector3 GetCamOffset()
+    {
+        int factor = 1;
+        if (target.GetComponent<Movement>().GetPlayerIndex() == 1) factor = -1;
+
+        float frustumHeight = 2.0f * 21 * Mathf.Tan(GetComponent<Camera>().fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float frustumWidth = frustumHeight * GetComponent<Camera>().aspect;
+
+        Vector3 aspect = new Vector3(frustumWidth,0 ,frustumHeight) / 4;
+
+        Vector3 vecBtwPlys = CameraManager.GetInstance().GetVecBetweenPlayer().normalized;
+
+        return new Vector3(vecBtwPlys.x * aspect.x, 0, vecBtwPlys.z * aspect.z) * factor;
     }
 
     private void OnDestroy()
