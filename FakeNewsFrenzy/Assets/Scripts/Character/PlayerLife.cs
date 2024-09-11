@@ -6,17 +6,28 @@ public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private int _StartLifePoint = 2;
     [SerializeField] private float _InvicibleTime = 3;
+    [SerializeField] private Collider _ReviveZoneCollider;
+    private int _LifePoint;
+
+    [HideInInspector] public InputHandler myIH;
+
     private bool isInvicible = false;
+
+    private void Start()
+    {
+        _LifePoint = _StartLifePoint;
+    }
 
     public void LoseLifePoint()
     {
-        if (isInvicible) return;
+        if (isInvicible || _LifePoint <= 0) return;
 
-        if(--_StartLifePoint == 0)
+        if(--_LifePoint == 0)
         {
             //Mort
             Debug.Log("Tié mort le sang");
             GetComponent<Movement>().enabled = false;
+            _ReviveZoneCollider.enabled = true;
             return;
         }
 
@@ -26,11 +37,18 @@ public class PlayerLife : MonoBehaviour
         StartCoroutine(WaitInvicible());
     }
 
+    public void Revive()
+    {
+        _ReviveZoneCollider.enabled = false;
+        GetComponent<Movement>().enabled = true;
+        _LifePoint = _StartLifePoint;
+    }
+
     IEnumerator WaitInvicible()
     {
         float pCount = 0;
         UnityEngine.Color color = GetComponent<Renderer>().material.color;
-
+        isInvicible = true;
         while (pCount < _InvicibleTime)
         {
             yield return null;
@@ -40,4 +58,30 @@ public class PlayerLife : MonoBehaviour
         isInvicible = false;
         GetComponent<Renderer>().material.color = new UnityEngine.Color(color.r, color.g, color.b, 1.0f);
     }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other == _ReviveZoneCollider) return;
+        if (other.TryGetComponent(out ReviveZone pRz))
+        {
+            if (myIH.GetReviveKey()) pRz.SetModeRevive();
+            else pRz.SetModeUnRevive();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other == _ReviveZoneCollider) return;
+        if (other.TryGetComponent(out ReviveZone pRz))
+        {
+            pRz.SetModeUnRevive();
+        }
+    }
+
+
+
+
+
+
 }

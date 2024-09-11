@@ -209,3 +209,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _StartLifePoint: 2
   _InvicibleTime: 3
+  _ReviveZoneCollider: {fileID: 0}

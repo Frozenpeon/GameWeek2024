@@ -11,12 +11,15 @@ public class InputHandler : MonoBehaviour
 
     [SerializeField] private InputActionReference _ShootAction;
 
+    private bool ReviveKeyPress= false;
+
     private void Start()
     {
         _PlayerInput = GetComponent<PlayerInput>();
         Movement[] movers = FindObjectsOfType<Movement>();
         int index = _PlayerInput.playerIndex;
         _Movement = movers.FirstOrDefault(m => m.GetPlayerIndex() == index);
+        _Movement.GetComponent<PlayerLife>().myIH = this;
     }
 
     private void Update()
@@ -70,6 +73,16 @@ public class InputHandler : MonoBehaviour
         {
             _Movement.GetComponent<EquipWeapon>().EquipNewWeapon();
         }
+    }
+
+    public void OnRevive(InputAction.CallbackContext obj)
+    {
+        ReviveKeyPress = obj.performed;
+    }
+
+    public bool GetReviveKey()
+    {
+        return ReviveKeyPress;
     }
 
 
