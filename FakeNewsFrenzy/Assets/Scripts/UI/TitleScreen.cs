@@ -28,7 +28,7 @@ public class TitleScreen : MonoBehaviour
     }
     public void OnSelectMenu(InputAction.CallbackContext obj)
     {
-        if (obj.canceled && !gameStarted)
+        if (obj.canceled && gameStarted == false)
         {
             gameStarted = true;
             _MenuScreen.SetActive(true);
@@ -37,6 +37,7 @@ public class TitleScreen : MonoBehaviour
         }
 
     }
+
 
 
 

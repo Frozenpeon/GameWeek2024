@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayButton : MonoBehaviour
@@ -8,12 +9,14 @@ public class PlayButton : MonoBehaviour
 
     [SerializeField] private GameObject nextScreen;
     [SerializeField] private GameObject menuScreen;
+
     private Button button;
     // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(onPlay);
+        
     }
 
     // Update is called once per frame
