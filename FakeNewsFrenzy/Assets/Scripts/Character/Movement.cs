@@ -23,9 +23,12 @@ public class Movement : MonoBehaviour
 
     private Rigidbody rb;
 
+    public static List<Movement> movements = new List<Movement>(); 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        movements.Add(this);
     }
 
     public int GetPlayerIndex()
@@ -96,5 +99,10 @@ public class Movement : MonoBehaviour
         }
 
         isRolling = false;
+    }
+
+    private void OnDestroy()
+    {
+        movements.Remove(this);
     }
 }
