@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5927038488198406490}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Speed: 20
-  _RollDistance: 2
+  _RollDistance: 5
   _RollSpeed: 60
   _PlayerIndex: 0
   canMoveWithMouse: 0

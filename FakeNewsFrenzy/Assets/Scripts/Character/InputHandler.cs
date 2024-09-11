@@ -34,6 +34,7 @@ public class InputHandler : MonoBehaviour
     
     public void OnRoll(InputAction.CallbackContext obj)
     {
+        if(obj.canceled) return;
         if (_Movement != null) _Movement.SetRoll();
     }
 
