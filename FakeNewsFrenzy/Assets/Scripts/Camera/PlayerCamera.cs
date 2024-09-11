@@ -36,7 +36,7 @@ public class PlayerCamera : MonoBehaviour
         transform.position = _NextPos;
     }
 
-    private void StartShakeCam(float _MaxShakeStrengh = 2, float _ShakeTime = 1)
+    public void StartShakeCam(float _MaxShakeStrengh = 2, float _ShakeTime = 1)
     {
         StartCoroutine(ShakeCam(2,1));
     }
