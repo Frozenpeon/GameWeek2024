@@ -7,8 +7,12 @@ using UnityEngine.UI;
 
 public class ConnexionScreen : MonoBehaviour
 {
-    [SerializeField] private Image _P1Picture;
-    [SerializeField] private Image _P2Picture;
+    [SerializeField] private Image P1Image;
+    [SerializeField] private Sprite _P1PictureValid;
+    [SerializeField] private Sprite _P1PictureInvalid;
+    [SerializeField] private Image P2Image;
+    [SerializeField] private Sprite _P2PictureValid;
+    [SerializeField] private Sprite _P2PictureInvalid;
     [SerializeField] private GameObject _StartButton;
     private EventSystem eventSystem;
     // Start is called before the first frame update
@@ -59,22 +63,22 @@ public class ConnexionScreen : MonoBehaviour
     {
         if(Gamepad.all.Count == 0)
         {
-            _P1Picture.color = Color.red;
-            _P2Picture.color = Color.red;
+            P1Image.sprite = _P1PictureInvalid;
+            P2Image.sprite = _P2PictureInvalid;
             _StartButton.SetActive(false);
 
         }
         else if (Gamepad.all.Count == 1)
         {
-            _P1Picture.color = Color.green;
-            _P2Picture.color = Color.red;
+            P1Image.sprite = _P1PictureValid;
+            P2Image.sprite= _P2PictureInvalid;
             _StartButton.SetActive(false);
 
         }
         else if (Gamepad.all.Count == 2)
         {
-            _P1Picture.color = Color.green;
-            _P2Picture.color = Color.green;
+            P1Image.sprite = _P1PictureValid;
+            P2Image.sprite = _P2PictureValid;
             _StartButton.SetActive(true);
             eventSystem.SetSelectedGameObject(_StartButton);
         }
