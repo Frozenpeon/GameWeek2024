@@ -8,10 +8,11 @@ public class PlayButton : MonoBehaviour
 
     [SerializeField] private GameObject nextScreen;
     [SerializeField] private GameObject menuScreen;
+    private Button button;
     // Start is called before the first frame update
     void Start()
     {
-        Button button = GetComponent<Button>();
+        button = GetComponent<Button>();
         button.onClick.AddListener(onPlay);
     }
 
@@ -24,8 +25,17 @@ public class PlayButton : MonoBehaviour
     private void onPlay()
     {
         Debug.Log("PLAY");
-        nextScreen.SetActive(true);
-        menuScreen.SetActive(false); 
+        StartCoroutine(SimulateButtonPress());
 
+    }
+    private IEnumerator SimulateButtonPress()
+    {
+
+        yield return new WaitForSeconds(0.1f); // Wait for a short duration to show the pressed state
+
+        // Revert back to the normal state and perform the action
+        button.interactable = true;
+        nextScreen.SetActive(true);
+        menuScreen.SetActive(false);
     }
 }
