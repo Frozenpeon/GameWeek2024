@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        //GetComponent<Rigidbody>().AddForce(direction * actualSpeed);
+
     }
 
     public void SetUp(Vector3 pDirection, float pPower)

@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 4868454394552487711}
+  _TargetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1770321111619705686
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a52d0ae5a83424f459172568e7eda94f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
+  playerPos: {x: 0, y: 0, z: 0}
   navmeshAgent: {fileID: 1439904388007717461}
   playerDetected: 0
