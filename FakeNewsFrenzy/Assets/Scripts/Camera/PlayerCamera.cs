@@ -16,6 +16,8 @@ public class PlayerCamera : MonoBehaviour
 
     public static float _CameraHeight = 30;
 
+    private Vector3 _NextPos;
+
     private void Start()
     {
         cameras.Add(this);
@@ -24,7 +26,33 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
+        _NextPos = transform.position;
         if (doAction != null) doAction();
+    }
+
+    private void LateUpdate()
+    {
+        transform.position = _NextPos;
+    }
+
+    public void StartShakeCam(float _MaxShakeStrengh = 2, float _ShakeTime = 1)
+    {
+        StartCoroutine(ShakeCam(2,1));
+    }
+
+    private IEnumerator ShakeCam(float _MaxShakeStrengh, float _ShakeTime )
+    {
+        float _Count = 0;
+        float _currentShakeStrengh = 0;
+
+        while (_Count <= _ShakeTime)
+        {
+            _Count += Time.deltaTime;
+            _currentShakeStrengh = Mathf.Lerp(_MaxShakeStrengh, 0, _Count/_ShakeTime);
+            Vector2 shake = new Vector2(UnityEngine.Random.Range(-_currentShakeStrengh, _currentShakeStrengh), UnityEngine.Random.Range(-_currentShakeStrengh, _currentShakeStrengh));
+            _NextPos += new Vector3(shake.x, 0, shake.y);
+            yield return null;
+        }
     }
 
     public void SetModeBetween()
@@ -40,17 +68,17 @@ public class PlayerCamera : MonoBehaviour
 
         while (_count < _TimeToLerp)
         {
-            transform.position = Vector3.Lerp(basePos, CameraManager.GetInstance().GetMidPos(), _count / _TimeToLerp);
+            _NextPos = Vector3.Lerp(basePos, CameraManager.GetInstance().GetMidPos(), _count / _TimeToLerp);
             _count += Time.deltaTime ;
             yield return null;
         }
-        transform.position = CameraManager.GetInstance().GetMidPos();
+        _NextPos = CameraManager.GetInstance().GetMidPos();
         doAction = DoActionBetween;
     }
 
     private void DoActionBetween()
     {
-        transform.position = CameraManager.GetInstance().GetMidPos();
+        _NextPos = CameraManager.GetInstance().GetMidPos();
     }
 
     public void SetModeFollow()
@@ -69,7 +97,7 @@ public class PlayerCamera : MonoBehaviour
         while (_count < _TimeToLerp)
         {
             camOffset = GetCamOffset();
-            transform.position= Vector3.Lerp(basePos,
+            _NextPos = Vector3.Lerp(basePos,
                                 new Vector3(target.position.x + camOffset.x, _CameraHeight, target.position.z + camOffset.z),
                                 _count / _TimeToLerp);
             _count += Time.deltaTime;
@@ -78,13 +106,13 @@ public class PlayerCamera : MonoBehaviour
         doAction = DoActionFollow;
 
         camOffset = GetCamOffset();
-        transform.position = new Vector3(target.position.x + camOffset.x, _CameraHeight, target.position.z + camOffset.z);
+        _NextPos = new Vector3(target.position.x + camOffset.x, _CameraHeight, target.position.z + camOffset.z);
     }
 
     private void DoActionFollow()
     {
         Vector3 camOffset = GetCamOffset();
-        transform.position = new Vector3(target.position.x + camOffset.x, _CameraHeight, target.position.z + camOffset.z);
+        _NextPos = new Vector3(target.position.x + camOffset.x, _CameraHeight, target.position.z + camOffset.z);
     }
 
     private Vector3 GetCamOffset()
