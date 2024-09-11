@@ -1,12 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EquipWeapon : MonoBehaviour
 {
+    public static event Action<WeaponType> Player1WeaponTypeChanged;
+
+    public static event Action<WeaponType> Player2WeaponTypeChanged;
+
+
     public bool isOnWeapon = false;
-    private GameObject newWeapon;
-    private GameObject _Weapon;
+    private WeaponType newWeapon;
+    private WeaponType _Weapon;
     private GameObject lootToDestroy;
     // Start is called before the first frame update
     void Start()
@@ -20,14 +26,14 @@ public class EquipWeapon : MonoBehaviour
         
     }
 
-    public void EquipNewWeapon()
+    public void EquipNewWeapon(int PlayerIndex)
     {
         if(isOnWeapon)
         {
-            _Weapon = Instantiate(newWeapon);
-            _Weapon.transform.parent = transform;
-            _Weapon.transform.localPosition = Vector3.zero; //Replace by correct position when sprites are done
-
+            if (PlayerIndex == 0)
+                Player1WeaponTypeChanged(newWeapon);
+            else 
+                Player2WeaponTypeChanged(newWeapon);
             isOnWeapon = false;
             Destroy(lootToDestroy);
         }
@@ -43,6 +49,13 @@ public class EquipWeapon : MonoBehaviour
             isOnWeapon = true;
             Debug.Log("ITEM DETECTED");
 
+            if (newWeapon == WeaponType.Grenade)
+            {
+                //TO DO : Ajouter au compteur de grenades du joueur en question
+                Debug.Log("Looted a nade");
+                isOnWeapon = false;
+                Destroy(lootToDestroy);
+            }
         }
     }
 
@@ -50,7 +63,7 @@ public class EquipWeapon : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Drop"))
         {
-            newWeapon = null;
+            newWeapon = 0;
             lootToDestroy = null;
             isOnWeapon = false;
             Debug.Log("ITEM LEFT");
