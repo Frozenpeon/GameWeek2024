@@ -11,6 +11,8 @@ public class InputHandler : MonoBehaviour
 
     [SerializeField] private InputActionReference _ShootAction;
 
+
+
     private bool ReviveKeyPress= false;
 
     private void Start()
@@ -20,7 +22,13 @@ public class InputHandler : MonoBehaviour
         int index = _PlayerInput.playerIndex;
         _Movement = movers.FirstOrDefault(m => m.GetPlayerIndex() == index);
         _Movement.GetComponent<PlayerLife>().myIH = this;
+       
+
+
     }
+
+  
+
 
     private void Update()
     {

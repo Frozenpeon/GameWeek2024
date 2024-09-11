@@ -9,15 +9,22 @@ public class EquipWeapon : MonoBehaviour
 
     public static event Action<WeaponType> Player2WeaponTypeChanged;
 
+    public static event Action Player1GotaNade;
+
+    public static event Action Player2GotaNade;
+
 
     public bool isOnWeapon = false;
     private WeaponType newWeapon;
     private WeaponType _Weapon;
     private GameObject lootToDestroy;
+
+    int IndexPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        IndexPlayer = GetComponent<Movement>()._PlayerIndex;
     }
 
     // Update is called once per frame
@@ -52,6 +59,10 @@ public class EquipWeapon : MonoBehaviour
             if (newWeapon == WeaponType.Grenade)
             {
                 //TO DO : Ajouter au compteur de grenades du joueur en question
+                if (IndexPlayer == 0)
+                    Player1GotaNade();
+                else
+                    Player2GotaNade();
                 Debug.Log("Looted a nade");
                 isOnWeapon = false;
                 Destroy(lootToDestroy);
