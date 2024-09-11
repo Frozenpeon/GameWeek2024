@@ -11,7 +11,6 @@ public class ConnexionScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(Gamepad.all.Count);
         CheckControllersAmount();
 
     }
