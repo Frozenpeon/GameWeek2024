@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd48f7baeb2f844199cecd0441ee0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreToAdd: 500
+  ScoreToAdd: 523
 --- !u!114 &301408076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,8 +342,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -397,7 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7515fb9b8575e2f45941f4eafe97b04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TextMeshPro: {fileID: 621564014}
+  maxScaling: 0
+  powerShake: 0
+  duration: 0
 --- !u!1 &1106372789
 GameObject:
   m_ObjectHideFlags: 0
