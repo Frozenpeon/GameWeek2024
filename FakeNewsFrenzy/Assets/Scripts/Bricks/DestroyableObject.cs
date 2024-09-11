@@ -19,6 +19,7 @@ public class DestroyableObject : MonoBehaviour
             collision.gameObject.GetComponent<PushableObject>().Push(GetComponent<Rigidbody>().velocity.normalized, 20, pusher);
         }
 
+        ParticleManager.GetInstance().PlayParticle(transform.position);
         Destroy(gameObject);
     }
 }
