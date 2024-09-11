@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,7 +12,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _RollDistance = 2;
     [SerializeField] private float _RollSpeed = 2;
 
-    [SerializeField] private int _PlayerIndex = 0;
+    [SerializeField] public int _PlayerIndex = 0;
 
     private bool isRolling = false;
 
@@ -22,6 +23,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Camera _Cam;
 
     private Rigidbody rb;
+    public int GrenadeCount = 0;
+    public int maxGrenades = 1;
 
     public static List<Movement> movements = new List<Movement>(); 
 
@@ -29,8 +32,22 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         movements.Add(this);
+        if (_PlayerIndex == 0)
+            EquipWeapon.Player1GotaNade += AddANade;
+        else
+            EquipWeapon.Player2GotaNade += AddANade;
     }
 
+    public void AddANade()
+    {
+        if (GrenadeCount + 1 > maxGrenades)
+        {
+            Debug.Log("Got too much nades already");
+            return;
+        }
+        GrenadeCount++;
+        Debug.Log("I got nades : " + GrenadeCount);
+    }
     public int GetPlayerIndex()
     {
         return _PlayerIndex;
