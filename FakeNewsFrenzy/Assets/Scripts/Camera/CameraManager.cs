@@ -35,7 +35,7 @@ public class CameraManager : MonoBehaviour
     {
         doAction = DoActionBetween;
 
-        float frustumHeight = 2.0f * 21 * Mathf.Tan(GetComponent<Camera>().fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float frustumHeight = 2.0f * PlayerCamera._CameraHeight * Mathf.Tan(GetComponent<Camera>().fieldOfView * 0.5f * Mathf.Deg2Rad);
         float frustumWidth = frustumHeight * GetComponent<Camera>().aspect;
         splitDistance = new Vector2(frustumWidth, frustumHeight) / 2f;
     }
@@ -58,7 +58,7 @@ public class CameraManager : MonoBehaviour
     {
         Vector3 distBetweenPlayers = secondPlayer.position - firstPlayer.position;
         Vector3 midPos = firstPlayer.position + distBetweenPlayers / 2f;
-        midPos.y = 20;
+        midPos.y = PlayerCamera._CameraHeight;
 
         return midPos;
     }
@@ -97,8 +97,8 @@ public class CameraManager : MonoBehaviour
 
     private bool IsPointInsideEllipse(Vector3 pos, Vector3 centerPos)
     {
-        float a = splitDistance.x /1.8f;
-        float b = splitDistance.y  / 1.8f;
+        float a = splitDistance.x /1f;
+        float b = splitDistance.y  / 1f;
         float dx = pos.x - centerPos.x;
         float dy = pos.z - centerPos.z;
 
