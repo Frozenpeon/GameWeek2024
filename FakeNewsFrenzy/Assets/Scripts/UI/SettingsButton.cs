@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class SettingsButton : MonoBehaviour
 {
     [SerializeField] private GameObject _SettingsScreen;
+    [SerializeField] private GameObject _ControlScreen;
+    [SerializeField] private GameObject _ControlButton;
     [SerializeField] private Button _PlayButton;
     [SerializeField] private Button _SettingsButton;
     [SerializeField] private Button _QuitButton;
+    [SerializeField] private Button _ControlsButton;
     [SerializeField] private GameObject Mastervolume;
     private EventSystem eventSystem;
-
+    private bool isControlsOpen = false;
 
     private Button button;
     // Start is called before the first frame update
@@ -20,6 +24,7 @@ public class SettingsButton : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(ShowSettings);
+        _ControlsButton.onClick.AddListener(ShowControls);
         eventSystem = EventSystem.current;
     }
 
@@ -48,5 +53,42 @@ public class SettingsButton : MonoBehaviour
         _QuitButton.enabled = false;
         eventSystem.SetSelectedGameObject(Mastervolume);
         
+    }
+
+    private void ShowControls()
+    {
+        if(isControlsOpen == false)
+        {
+            _PlayButton.enabled = false;
+            _SettingsButton.enabled = false;
+            _QuitButton.enabled = false;
+            _ControlScreen.SetActive(true);
+            StartCoroutine(DebugButton());
+
+        }
+
+    }
+
+    public void CloseScreen(InputAction.CallbackContext obj)
+    {
+        if(obj.canceled && isControlsOpen)
+        {
+            _ControlScreen.SetActive(false);
+  
+            eventSystem.SetSelectedGameObject(_ControlButton);
+            _PlayButton.enabled = true;
+            _SettingsButton.enabled = true;
+            _QuitButton.enabled = true;
+            isControlsOpen = false;
+        }
+       
+    }
+
+    private IEnumerator DebugButton()
+    {
+
+        yield return new WaitForSeconds(0.1f);
+
+        isControlsOpen = true;
     }
 }
