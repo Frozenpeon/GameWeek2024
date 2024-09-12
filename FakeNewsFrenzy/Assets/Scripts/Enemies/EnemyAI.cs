@@ -31,6 +31,7 @@ public class EnemyAI : MonoBehaviour
         else
         {
             //Appeler / faire l'attaque cac 
+            if (sprites != null)
             sprites.ShowMeleAttack();
         }
     }
