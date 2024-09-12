@@ -28,6 +28,9 @@ public class Grenade : MonoBehaviour
 
     public float baseTimerBling = 0.5f;
 
+    public int Damage = 10;
+
+
     Coroutine corou;
 
     private void Start()
@@ -57,7 +60,7 @@ public class Grenade : MonoBehaviour
 
         foreach (EnemyLife go in enmiesToKill)
         {
-            go.TakesDmg(5);
+            go.TakesDmg(Damage);
         }
         StopAllCoroutines();
         Destroy(gameObject);

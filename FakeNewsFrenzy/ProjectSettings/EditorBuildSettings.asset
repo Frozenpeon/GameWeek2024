@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 50c8c6e74706f1349a7bfd2ea7378e7b
+  - enabled: 1
+    path: Assets/Scenes/Test/3DCharaTest.unity
+    guid: 50b2d00cbc156ee49843c8ecb89a0e0c
   m_configObjects: {}

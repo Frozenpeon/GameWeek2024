@@ -30,21 +30,24 @@ public class RumbleManager : MonoBehaviour
         }
     }*/
 
-    public void StartShaking(int padID, float highFrequency, float lowFrequency, float duration)
+    public void StartShaking(Gamepad pGamepad, float highFrequency, float lowFrequency, float duration)
     {
-        Gamepad pad = Gamepad.all[padID];
-        pad.SetMotorSpeeds(highFrequency, lowFrequency);
+        pGamepad.SetMotorSpeeds(highFrequency, lowFrequency);
 
-        if (padID == 0)
-            RumblingCoroutinePlayerOne = StartCoroutine(StopRumble(duration, pad));
+        if (pGamepad.deviceId == 0)
+        {
+            RumblingCoroutinePlayerOne = StartCoroutine(StopRumble(duration, pGamepad));
+        }
         else
-            RumblingCoroutinePlayerTwo = StartCoroutine(StopRumble(duration, pad));
+        {
+            RumblingCoroutinePlayerTwo = StartCoroutine(StopRumble(duration, pGamepad));
+        }
 
     }
 
     private IEnumerator StopRumble(float duration, Gamepad pad)
     {
-
+        
         float elapsedTime = 0;
         while (elapsedTime < duration)
         {

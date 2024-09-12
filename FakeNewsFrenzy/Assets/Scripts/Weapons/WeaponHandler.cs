@@ -15,13 +15,17 @@ public class WeaponHandler : MonoBehaviour
     public float elapsedTime;
     [HideInInspector] public bool isShooting = false;
 
+    [HideInInspector] public Gamepad gamepad;
+
+    public int idShooter = -1;
+
     private void Start()
     {
         weapon = Instantiate(SOWeapon);
     }
     void Update()
     {
-        if (isShooting) Shoot();
+        if (isShooting) Shoot(gamepad);
         elapsedTime += Time.deltaTime;
 
     }
@@ -29,14 +33,14 @@ public class WeaponHandler : MonoBehaviour
     /// Do not put a PlayerID if shooting from pc or if it's an enemy shooting
     /// </summary>
     /// <param name="PlayerID">aaa</param>
-    public void Shoot(int PlayerID = -1)
+    public void Shoot(Gamepad pGamepad = null)
     {
         if (elapsedTime <= weapon.fireRate)
             return;
         weapon.Fire(firePosiion.right, firePosiion.position);
-        if (PlayerID != -1)
+        if (pGamepad != null)
         {
-            RumbleManager.instance.StartShaking(PlayerID, weapon.power / 400, weapon.power / 400, 0.1f);
+            RumbleManager.instance.StartShaking(pGamepad, weapon.power / 100, weapon.power / 100, 0.1f);
         }
         elapsedTime = 0;
     }

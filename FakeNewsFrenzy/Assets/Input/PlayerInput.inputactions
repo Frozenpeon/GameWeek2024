@@ -194,7 +194,7 @@
                 {
                     "name": "",
                     "id": "7945b418-658e-457f-9096-c63a92cccbd2",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -271,6 +271,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RIghtSelect",
+                    "type": "Button",
+                    "id": "c14e0b42-d068-47cf-8ca5-3e884527d807",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftSelect",
+                    "type": "Button",
+                    "id": "75d74908-0f32-46d1-bfaf-5b76cf07955b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Valid",
+                    "type": "Button",
+                    "id": "d993e389-ff53-4499-b4e1-9ba6452757e2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -326,6 +353,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChangeScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b112033f-cb60-418b-a6df-47550d5348e7",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RIghtSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e66100bd-116d-4918-a421-3e9ca817c598",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RIghtSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "436df974-c85e-4f11-a6c4-1dbe51983e9f",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a07c5fb0-fd77-49bc-9b55-6ed7c7f0d7e3",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fea12d6c-f6eb-455e-8763-4458aab80b3f",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Valid",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a0ec664a-77dd-4fab-8cfa-ac00987b1355",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Valid",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

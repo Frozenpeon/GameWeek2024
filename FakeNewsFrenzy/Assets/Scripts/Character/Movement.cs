@@ -29,6 +29,9 @@ public class Movement : MonoBehaviour
 
     public WeaponSwapper WeaponSwapper;
 
+    public GenadeLauncher grenadeLauncher;
+
+    public SpriteChanger spriteChanger;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -37,17 +40,17 @@ public class Movement : MonoBehaviour
             EquipWeapon.Player1GotaNade += AddANade;
         else
             EquipWeapon.Player2GotaNade += AddANade;
+
+        ChangeWeapon(WeaponSelectionManager.weapons[_PlayerIndex]);
     }
 
     public void AddANade()
     {
         if (GrenadeCount + 1 > maxGrenades)
         {
-            Debug.Log("Got too much nades already");
             return;
         }
         GrenadeCount++;
-        Debug.Log("I got nades : " + GrenadeCount);
     }
     public int GetPlayerIndex()
     {
@@ -57,6 +60,15 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+        if (Input.GetMouseButtonUp(1))
+        {
+            ThrowANade();
+        }
+    }
+
+    public void ThrowANade()
+    {
+        grenadeLauncher.ThrowAGrenade();
     }
 
     public void ChangeWeapon(WeaponType weapon)
@@ -84,7 +96,7 @@ public class Movement : MonoBehaviour
 
     public void MakePlayerLookAt(Vector2 _Dir)
     {
-        if (isRolling) return;
+        if (isRolling || GetComponent<PlayerLife>().GetLifePoint() <= 0) return;
 
         transform.LookAt(new Vector3(transform.position.x + _Dir.x, transform.position.y, transform.position.z + _Dir.y ));
     }
@@ -96,7 +108,7 @@ public class Movement : MonoBehaviour
 
     public void SetRoll()
     {
-        if(isBeingPushed) return;
+        if(isBeingPushed || GetComponent<PlayerLife>().GetLifePoint() <= 0) return;
         isRolling = true;
 
         IEnumerator corountine = DoActionRoll(_Dir.normalized);
@@ -106,12 +118,14 @@ public class Movement : MonoBehaviour
     public void StartPush()
     {
         isBeingPushed = true;
+        spriteChanger.ShowStun();
         StartCoroutine(WaitToBePush());
     }
 
     IEnumerator WaitToBePush()
     {
         yield return new WaitForSeconds(1.2f);
+        spriteChanger.ShowWeapon();
         isBeingPushed = false;
     }
 
