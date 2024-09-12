@@ -189,9 +189,10 @@ GameObject:
   - component: {fileID: 912559930186421265}
   - component: {fileID: 2193216320354903317}
   - component: {fileID: 6206687596803782517}
+  - component: {fileID: 8222792931454073219}
   m_Layer: 7
   m_Name: Real_Enemy_Ranged_2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,6 +323,19 @@ MonoBehaviour:
   navmeshAgent: {fileID: 2193216320354903317}
   playerDetected: 0
   sprites: {fileID: 1878070277554303568}
+--- !u!114 &8222792931454073219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359950261989557048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8ba9d423c9ec488a60575b5468f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 10
 --- !u!1001 &4029353685631362439
 PrefabInstance:
   m_ObjectHideFlags: 0
