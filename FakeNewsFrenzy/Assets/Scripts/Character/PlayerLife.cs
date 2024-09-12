@@ -26,6 +26,11 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
+    public int GetLifePoint()
+    {
+        return _LifePoint;
+    }
+
     public void LoseLifePoint()
     {
         if (isInvicible || _LifePoint <= 0) return;
