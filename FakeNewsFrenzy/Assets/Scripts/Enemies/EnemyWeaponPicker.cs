@@ -20,7 +20,7 @@ public class EnemyWeaponPicker : MonoBehaviour
 
     private void Start()
     {
-        AR.SetActive(false);
+        AR.SetActive(false);    
         Shotgun.SetActive(false);
         Pistol.SetActive(false);
 
