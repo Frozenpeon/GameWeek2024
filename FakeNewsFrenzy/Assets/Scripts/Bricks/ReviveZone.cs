@@ -18,10 +18,7 @@ public class ReviveZone : MonoBehaviour
 
     private void Start()
     {   
-        if(reviveSliderContainer.GetComponent<Slider>() != null && reviveSliderContainer != null){
-            reviveSlider = reviveSliderContainer.GetComponentInChildren<Slider>();
-            reviveSlider.maxValue = _TimeToRevive;
-        }
+        reviveSlider = reviveSliderContainer.GetComponentInChildren<Slider>();
         SetModeUnRevive();
     }
 
