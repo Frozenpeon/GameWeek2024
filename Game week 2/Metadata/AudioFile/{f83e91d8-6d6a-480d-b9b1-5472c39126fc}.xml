@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f83e91d8-6d6a-480d-b9b1-5472c39126fc}">
+		<property name="assetPath">
+			<value>Musique/Comp Gameweek start.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>20.425541666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ba06e7b0-7df8-4a15-b7d6-d148404102e9}</destination>
+		</relationship>
+	</object>
+</objects>
