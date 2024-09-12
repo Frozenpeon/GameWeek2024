@@ -321,6 +321,7 @@ MonoBehaviour:
   playerPos: {x: 0, y: 0, z: 0}
   navmeshAgent: {fileID: 2193216320354903317}
   playerDetected: 0
+  sprites: {fileID: 3639574052709190795}
 --- !u!1001 &7208171963591928507
 PrefabInstance:
   m_ObjectHideFlags: 0
