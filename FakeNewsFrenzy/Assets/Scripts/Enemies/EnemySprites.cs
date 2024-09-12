@@ -25,7 +25,7 @@ public class EnemySprites : MonoBehaviour
 
     private void Start()
     {
-        ShowedSprite.sprite = chill[0];    
+        //ShowedSprite.sprite = chill[0];    
     }
 
     int i = 0;
@@ -39,10 +39,31 @@ public class EnemySprites : MonoBehaviour
         }
     }
 
+    private IEnumerator Melee()
+    {
+        ShowedSprite.sprite = meleeAttack;
+        yield return new WaitForSeconds(0.2f);
+        ShowedSprite.sprite = melee;
+    }
+
     public void ShowAggro()
     {
         StopAllCoroutines();
         StopCoroutine(Coroutine);
         ShowedSprite.sprite = Aggro;
+    }
+
+    public void ShowMeleAttack()
+    {
+        StopAllCoroutines();
+        StopCoroutine(Coroutine);
+        Coroutine = StartCoroutine(Melee());
+    }
+
+    public void ShowMele()
+    {
+        StopAllCoroutines();
+        StopCoroutine(Coroutine);
+        ShowedSprite.sprite = melee;
     }
 }

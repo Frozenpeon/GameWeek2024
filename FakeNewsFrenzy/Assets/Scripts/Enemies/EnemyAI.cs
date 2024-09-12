@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
 
     public bool playerDetected = false;
 
-
+    public EnemySprites sprites;
 
 
     // Start is called before the first frame update
@@ -21,10 +21,18 @@ public class EnemyAI : MonoBehaviour
         
     }
 
+   
+
     // Juste appelle ça quand tu veux tirer en sah
     private void Shoot()
     {
-        transform.GetChild(0).GetComponent<EnemyWeaponPicker>().Shoot();
+        if (transform.GetChild(0).GetComponent<EnemyWeaponPicker>()!=null)
+            transform.GetChild(0).GetComponent<EnemyWeaponPicker>().Shoot();
+        else
+        {
+            //Appeler / faire l'attaque cac 
+            sprites.ShowMeleAttack();
+        }
     }
 
 
@@ -36,5 +44,10 @@ public class EnemyAI : MonoBehaviour
             navmeshAgent.SetDestination(playerPos);
         }
         
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+
     }
 }
