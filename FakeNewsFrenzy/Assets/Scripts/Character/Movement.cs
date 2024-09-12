@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,11 +28,16 @@ public class Movement : MonoBehaviour
 
     public static List<Movement> movements = new List<Movement>();
 
+    [SerializeField] private float footStepFrequency = .2f;
+    private float _countFootStep;
+
     public WeaponSwapper WeaponSwapper;
 
     public GenadeLauncher grenadeLauncher;
 
     public SpriteChanger spriteChanger;
+
+    [SerializeField] private EventReference footStep;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -87,6 +93,13 @@ public class Movement : MonoBehaviour
         {
             Vector3 hitPoint = hitInfo.point;
             transform.LookAt(new Vector3(hitPoint.x, transform.position.y,hitPoint.z));;
+        }
+        _countFootStep += Time.deltaTime;
+        if (rb.velocity.magnitude < .1f) return;
+        if (_countFootStep > footStepFrequency)
+        {
+            _countFootStep = 0;
+            GetComponent<SoundEmmiter>().PlaySound(footStep); 
         }
     }
 

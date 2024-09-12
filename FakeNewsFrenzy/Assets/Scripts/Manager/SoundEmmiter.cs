@@ -10,6 +10,7 @@ public class SoundEmmiter : MonoBehaviour
     {
         EventInstance lInstance;
         lInstance = RuntimeManager.CreateInstance(pSfx);
-        RuntimeManager.AttachInstanceToGameObject(lInstance, transform);
+        RuntimeManager.AttachInstanceToGameObject(lInstance, CameraManager.GetInstance().transform);
+        lInstance.start();
     }
 }

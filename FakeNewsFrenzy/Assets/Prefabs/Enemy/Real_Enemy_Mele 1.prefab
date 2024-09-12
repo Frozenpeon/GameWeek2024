@@ -191,6 +191,8 @@ GameObject:
   - component: {fileID: 2193216320354903317}
   - component: {fileID: 6206687596803782517}
   - component: {fileID: 6383829132498808753}
+  - component: {fileID: 2916654669352218455}
+  - component: {fileID: 4911691238945722233}
   m_Layer: 7
   m_Name: Real_Enemy_Mele 1
   m_TagString: Enemy
@@ -342,6 +344,38 @@ MonoBehaviour:
   weaponDropRate: 50
   grenadeDropRate: 20
   grenadeLoot: {fileID: 5835729711838785204, guid: 00a72113258a7bc4c8d767445f75fe62, type: 3}
+--- !u!114 &2916654669352218455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359950261989557048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4911691238945722233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359950261989557048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8ba9d423c9ec488a60575b5468f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 10
+  hitEnemySound:
+    Guid:
+      Data1: -527081110
+      Data2: 1290958815
+      Data3: -1687833696
+      Data4: 668900932
+    Path: event:/Hit_enemy
 --- !u!1 &8021837032324075699
 GameObject:
   m_ObjectHideFlags: 0

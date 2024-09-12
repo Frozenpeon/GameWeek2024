@@ -30,8 +30,8 @@ MonoBehaviour:
       Data4: -355548292
     Path: event:/Reload_shotgun
   fireRate: 0.5
-  bulletPerReload: 0
-  ReloadTime: 0
+  bulletPerReload: 3
+  ReloadTime: 1
   power: 100
   bulletPerShot: 20
   objectDrop: {fileID: 5245571686393628309, guid: 970fefbc9ad64af40aedc2e3d5a45ce9, type: 3}
