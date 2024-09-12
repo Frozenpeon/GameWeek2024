@@ -10,12 +10,15 @@ public class P1WeaponSelection : MonoBehaviour
 
     [SerializeField] private Sprite[] weaponsSprites;
     [SerializeField] private Image weaponImg;
+    private WeaponType currentWeapon;
     private int index = 0;
     // Start is called before the first frame update
     void Start()
     {
         leftButton.onClick.AddListener(DecrementArray);
         rightButton.onClick.AddListener(IncrementArray);
+
+
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class P1WeaponSelection : MonoBehaviour
     }
     private void UpdateImage()
     {
+        currentWeapon = (WeaponType)index;
         weaponImg.sprite = weaponsSprites[index];
     }
 
