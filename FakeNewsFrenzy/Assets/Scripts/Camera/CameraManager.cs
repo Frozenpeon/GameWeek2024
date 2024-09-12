@@ -34,6 +34,7 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         doAction = DoActionBetween;
+        _CamMat.SetFloat("_CameraSplit", 0);
 
         float frustumHeight = 2.0f * PlayerCamera._CameraHeight * Mathf.Tan(GetComponent<Camera>().fieldOfView * 0.5f * Mathf.Deg2Rad);
         float frustumWidth = frustumHeight * GetComponent<Camera>().aspect;
@@ -72,6 +73,8 @@ public class CameraManager : MonoBehaviour
     {
         foreach (PlayerCamera pCam in PlayerCamera.cameras) pCam.SetModeBetween();
         doAction = DoActionBetween;
+        _CamMat.SetFloat("_CameraSplit", 0);
+
     }
 
     private void DoActionBetween()
@@ -85,6 +88,7 @@ public class CameraManager : MonoBehaviour
     {
         foreach (PlayerCamera pCam in PlayerCamera.cameras) pCam.SetModeFollow();
         doAction = DoActionFollowPlayer;
+        _CamMat.SetFloat("_CameraSplit", 1);
     }
 
     private void DoActionFollowPlayer()
