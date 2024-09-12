@@ -15,7 +15,7 @@ public class PushAttack : MonoBehaviour
     {
         //GetComponent<Movement>().spriteChanger.ShowAttack();
 
-        Collider[] colliders = Physics.OverlapBox(transform.position + transform.forward * 3,new Vector3(1,2,1));
+        Collider[] colliders = Physics.OverlapBox(transform.position + transform.forward * 3,new Vector3(3,6,3));
 
         foreach (Collider collider in colliders)
         {
