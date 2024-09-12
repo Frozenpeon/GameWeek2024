@@ -67,9 +67,9 @@ GameObject:
   - component: {fileID: 2414003950677247563}
   - component: {fileID: 6449064832024484352}
   - component: {fileID: 5802080196309151979}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrenadeDrop
-  m_TagString: Untagged
+  m_TagString: Drop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
