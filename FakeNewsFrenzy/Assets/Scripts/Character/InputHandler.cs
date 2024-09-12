@@ -107,6 +107,13 @@ public class InputHandler : MonoBehaviour
         return ReviveKeyPress;
     }
 
+    public void OnReload(InputAction.CallbackContext obj)
+    {
+        if(obj.started && _Movement.gameObject.GetComponentInChildren<WeaponHandler>() != null){
+            if(_Movement.gameObject.GetComponentInChildren<WeaponHandler>().GetBulletCount() > 0 && !_Movement.gameObject.GetComponentInChildren<WeaponHandler>().GetIsReloading()) _Movement.gameObject.GetComponentInChildren<WeaponHandler>().Reload();   
+        } 
+    }
+
     public void OnSelectMenu(InputAction.CallbackContext obj)
     {
         if(_UIctrl != null)

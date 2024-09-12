@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReviveZone : MonoBehaviour
 {
@@ -10,10 +11,17 @@ public class ReviveZone : MonoBehaviour
     private float _lastCount = 0;
     [SerializeField] private Transform myPlayer;
 
+    [SerializeField] private GameObject reviveSliderContainer;
+    private Slider reviveSlider;
+
     private Action doAction;
 
     private void Start()
-    {
+    {   
+        if(reviveSliderContainer.GetComponent<Slider>() != null && reviveSliderContainer != null){
+            reviveSlider = reviveSliderContainer.GetComponentInChildren<Slider>();
+            reviveSlider.maxValue = _TimeToRevive;
+        }
         SetModeUnRevive();
     }
 
@@ -30,14 +38,17 @@ public class ReviveZone : MonoBehaviour
     public void SetModeRevive()
     {
         doAction = DoActionRevive;
+        reviveSliderContainer.SetActive(true);
     }
 
     private void DoActionRevive()
     {
         _Count += Time.deltaTime;
+        if (_Count >= 0) reviveSlider.value = _Count;
         if (_Count >= _TimeToRevive)
         {
             myPlayer.GetComponent<PlayerLife>().Revive();
+            _Count = 0;
             SetModeUnRevive();
         }
     }
@@ -45,11 +56,13 @@ public class ReviveZone : MonoBehaviour
     public void SetModeUnRevive()
     {
         doAction = DoActionUnRevive;
+        reviveSliderContainer.SetActive(false);
     }
 
     public void DoActionUnRevive()
     {
         _Count -= Time.deltaTime;
+        if (_Count >= 0) reviveSlider.value = _Count;
         if (_Count < 0) _Count = 0;
     }
 

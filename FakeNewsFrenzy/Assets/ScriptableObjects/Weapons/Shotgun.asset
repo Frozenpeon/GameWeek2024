@@ -16,6 +16,8 @@ MonoBehaviour:
   bullet: {fileID: 5453886261738243869, guid: 5a6b5463896dab54a856da2f31f486b6, type: 3}
   spread: 20
   fireRate: 0.5
+  bulletPerReload: 2
+  ReloadTime: 3
   power: 100
   bulletPerShot: 20
   objectDrop: {fileID: 5245571686393628309, guid: 970fefbc9ad64af40aedc2e3d5a45ce9, type: 3}
