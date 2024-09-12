@@ -40,6 +40,8 @@ public class Movement : MonoBehaviour
             EquipWeapon.Player1GotaNade += AddANade;
         else
             EquipWeapon.Player2GotaNade += AddANade;
+
+        ChangeWeapon(WeaponSelectionManager.weapons[_PlayerIndex]);
     }
 
     public void AddANade()
