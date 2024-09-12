@@ -9,7 +9,7 @@ public class UIControler : MonoBehaviour
     [SerializeField] private TitleScreen titleScreen;
     [SerializeField] private Button leftWeapponSelect;
     [SerializeField] private Button rightWeapponSelect;
-
+    [SerializeField] private WeaponSelectionManager weaponSelectionManager;
 
     public int GetControllerIndex()
     {
@@ -39,5 +39,6 @@ public class UIControler : MonoBehaviour
 
     public void ValidWeapon()
     {
+        weaponSelectionManager.SetWeaponValidValue(ControlerIndex);
     }
 }

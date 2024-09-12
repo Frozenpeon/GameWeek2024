@@ -1648,6 +1648,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4336102794800322480, guid: 4caa97ac43945ae408b7e1332a05540d, type: 3}
   m_PrefabInstance: {fileID: 6883989442788788365}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1434494139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434494137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38443e5b5ffa5184491847708a2e1a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1525024680 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1828544505282538875, guid: 3c347da4437bc0545abb7e7135a10fa7, type: 3}
@@ -1728,6 +1740,7 @@ MonoBehaviour:
   titleScreen: {fileID: 544282835}
   leftWeapponSelect: {fileID: 310213867}
   rightWeapponSelect: {fileID: 1286322467}
+  weaponSelectionManager: {fileID: 1434494139}
 --- !u!4 &1661414665
 Transform:
   m_ObjectHideFlags: 0
@@ -1776,6 +1789,7 @@ MonoBehaviour:
   titleScreen: {fileID: 544282835}
   leftWeapponSelect: {fileID: 2084370856}
   rightWeapponSelect: {fileID: 1038151724}
+  weaponSelectionManager: {fileID: 1434494139}
 --- !u!4 &1663855492
 Transform:
   m_ObjectHideFlags: 0
@@ -3249,7 +3263,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4336102794800322480, guid: 4caa97ac43945ae408b7e1332a05540d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1434494139}
   m_SourcePrefab: {fileID: 100100000, guid: 4caa97ac43945ae408b7e1332a05540d, type: 3}
 --- !u!1001 &7168098787712183368
 PrefabInstance:

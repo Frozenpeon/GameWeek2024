@@ -12,6 +12,8 @@ public class P1WeaponSelection : MonoBehaviour
     [SerializeField] private Image weaponImg;
     private WeaponType currentWeapon;
     private int index = 0;
+
+    private bool isWeaponValid = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,5 +52,10 @@ public class P1WeaponSelection : MonoBehaviour
             index++;
 
         UpdateImage();
+    }
+
+    public void ValidWeapon()
+    {
+
     }
 }
