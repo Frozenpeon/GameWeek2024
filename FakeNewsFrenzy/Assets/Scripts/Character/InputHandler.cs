@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,7 +77,7 @@ public class InputHandler : MonoBehaviour
             if (wp == null) return;
 
             _Movement.GetComponentInChildren<WeaponHandler>().isShooting = obj.ReadValue<float>() > 0;
-            _Movement.GetComponentInChildren<WeaponHandler>().idShooter = _Movement._PlayerIndex;
+            _Movement.GetComponentInChildren<WeaponHandler>().gamepad = (Gamepad)GameInputManager.inputDevices[_PlayerInput.playerIndex];
         }
     }
 
