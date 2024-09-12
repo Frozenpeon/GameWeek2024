@@ -53,7 +53,9 @@ public class WeaponHandler : MonoBehaviour
         }
         ++bulletCount;
         GetComponent<SoundEmmiter>().PlaySound(weapon.shotSound);
+        Debug.Log(weapon.shotSound);
 
+        if (weapon.bulletPerReload == 0) return;
         if(weapon.bulletPerReload <= bulletCount)
         {
             StartCoroutine(Reloading());

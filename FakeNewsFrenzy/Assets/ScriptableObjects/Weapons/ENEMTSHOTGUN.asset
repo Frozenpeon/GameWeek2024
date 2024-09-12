@@ -17,11 +17,11 @@ MonoBehaviour:
   spread: 20
   shotSound:
     Guid:
-      Data1: -849891907
-      Data2: 1169801141
-      Data3: -4130405
-      Data4: 846627501
-    Path: event:/Shoot_shotgun
+      Data1: 1407226537
+      Data2: 1113888065
+      Data3: 1716504242
+      Data4: -1650129238
+    Path: event:/Enyme_shoot_shotgun
   reloadSound:
     Guid:
       Data1: -1502322317

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2266136940895594351}
   - component: {fileID: 1389189082252832721}
+  - component: {fileID: 3404189559611533380}
   m_Layer: 0
   m_Name: Deseart_Eagle
   m_TagString: Untagged
@@ -52,6 +53,18 @@ MonoBehaviour:
   elapsedTime: 0
   isShooting: 0
   idShooter: -1
+--- !u!114 &3404189559611533380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838461233182340930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1500968188099804613
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3148641055718473666}
   - component: {fileID: 1025834436426554525}
+  - component: {fileID: 4569391551016357744}
   m_Layer: 0
   m_Name: Assault_Rifle
   m_TagString: Untagged
@@ -188,6 +202,18 @@ MonoBehaviour:
   elapsedTime: 0
   isShooting: 0
   idShooter: -1
+--- !u!114 &4569391551016357744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731259243678619051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1801804037323836718
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6152989897459018840}
   - component: {fileID: 1268976291996773478}
+  - component: {fileID: 6467277407100490025}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -271,6 +298,18 @@ MonoBehaviour:
   elapsedTime: 0
   isShooting: 0
   idShooter: -1
+--- !u!114 &6467277407100490025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440975721420922907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3993488359105761614
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +446,7 @@ MonoBehaviour:
   AR: {fileID: 1731259243678619051}
   Shotgun: {fileID: 3440975721420922907}
   Pistol: {fileID: 838461233182340930}
+  activWeapon: {fileID: 0}
   spriteHandler: {fileID: 6236024664744158768}
 --- !u!1 &6515679074546363217
 GameObject:

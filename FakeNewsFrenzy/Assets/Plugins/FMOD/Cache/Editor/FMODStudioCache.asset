@@ -55,6 +55,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 200851
+--- !u!114 &-7228557650968320569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy_shoot_deagle
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy_shoot_deagle
+  Guid:
+    Data1: -1379099163
+    Data2: 1309224273
+    Data3: -95642710
+    Data4: 479135481
+  Banks:
+  - {fileID: -2925804036027051615}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6893186098144758023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +127,33 @@ MonoBehaviour:
     Data2: 1136291762
     Data3: 958021024
     Data4: -2027147748
+  Banks:
+  - {fileID: -2925804036027051615}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4597080131979637545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Click_menue
+  m_EditorClassIdentifier: 
+  Path: event:/Click_menue
+  Guid:
+    Data1: 1557988347
+    Data2: 1319475524
+    Data3: -1397165140
+    Data4: 110581124
   Banks:
   - {fileID: -2925804036027051615}
   IsStream: 0
@@ -174,14 +228,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Cac_enemy
   Guid:
-    Data1: -415164682
-    Data2: 1272319764
-    Data3: -41763141
-    Data4: 1197332908
+    Data1: 547206900
+    Data2: 1090681988
+    Data3: 1489650340
+    Data4: -446136148
   Banks:
   - {fileID: -2925804036027051615}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -202,10 +256,10 @@ MonoBehaviour:
   Path: ../Game week 2/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638617645850998277
+  lastModified: 638617660838725405
   FileSizes:
   - Name: Desktop
-    Value: 8736832
+    Value: 8805984
   Exists: 1
 --- !u!114 &-408711048061599791
 MonoBehaviour:
@@ -294,12 +348,17 @@ MonoBehaviour:
   - {fileID: 5635521056828708359}
   - {fileID: 2577861024651790156}
   - {fileID: -3501263104806073253}
+  - {fileID: 732687570803923494}
+  - {fileID: 413562929248186150}
+  - {fileID: 6719116425493562825}
+  - {fileID: -7228557650968320569}
+  - {fileID: -4597080131979637545}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2925804036027051615}
   StringsBanks:
   - {fileID: 8116156985415566562}
-  cacheTime: 638617645851018209
+  cacheTime: 638617660838745571
   cacheVersion: 131619
 --- !u!114 &9882979221090484
 MonoBehaviour:
@@ -319,6 +378,60 @@ MonoBehaviour:
     Data2: 1169801141
     Data3: -4130405
     Data4: 846627501
+  Banks:
+  - {fileID: -2925804036027051615}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &413562929248186150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy_shoot_rifle
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy_shoot_rifle
+  Guid:
+    Data1: 1842538122
+    Data2: 1138815452
+    Data3: 1017843128
+    Data4: 1056554954
+  Banks:
+  - {fileID: -2925804036027051615}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &732687570803923494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Open_menue
+  m_EditorClassIdentifier: 
+  Path: event:/Open_menue
+  Guid:
+    Data1: 1190973212
+    Data2: 1308989773
+    Data3: -386897252
+    Data4: -266625548
   Banks:
   - {fileID: -2925804036027051615}
   IsStream: 0
@@ -515,6 +628,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6719116425493562825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enyme_shoot_shotgun
+  m_EditorClassIdentifier: 
+  Path: event:/Enyme_shoot_shotgun
+  Guid:
+    Data1: 1407226537
+    Data2: 1113888065
+    Data3: 1716504242
+    Data4: -1650129238
+  Banks:
+  - {fileID: -2925804036027051615}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8116156985415566562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,10 +670,10 @@ MonoBehaviour:
   Path: ../Game week 2/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638617645851018209
+  lastModified: 638617660838745571
   FileSizes:
   - Name: Desktop
-    Value: 1578
+    Value: 1828
   Exists: 1
 --- !u!114 &8761570980975629366
 MonoBehaviour:
