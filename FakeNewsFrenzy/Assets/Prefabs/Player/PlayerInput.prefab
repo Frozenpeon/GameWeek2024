@@ -174,6 +174,34 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b7b2a133-1bf1-475e-b422-88e36f124a59
     m_ActionName: MainMenu/ChangeScreen[/Keyboard/enter,/DualSenseGamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth,/DualSenseGamepadHID/buttonNorth,/XInputControllerWindows/buttonNorth,/DualSenseGamepadHID/buttonWest,/XInputControllerWindows/buttonWest,/DualSenseGamepadHID/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5801055568549142464}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnGrenade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2d8a83f8-fd1a-4a31-83d3-7e7f97e22aa7
+    m_ActionName: Player/Grenade[/XInputControllerWindows/rightShoulder,/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c14e0b42-d068-47cf-8ca5-3e884527d807
+    m_ActionName: MainMenu/RIghtSelect[/Keyboard/d,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 75d74908-0f32-46d1-bfaf-5b76cf07955b
+    m_ActionName: MainMenu/LeftSelect[/XInputControllerWindows/dpad/left,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d993e389-ff53-4499-b4e1-9ba6452757e2
+    m_ActionName: MainMenu/Valid[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

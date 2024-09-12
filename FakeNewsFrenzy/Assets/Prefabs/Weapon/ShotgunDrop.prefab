@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8759860501510098851}
   - component: {fileID: 3861500266737910930}
   - component: {fileID: -8909601148644114021}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShotgunDrop
-  m_TagString: Untagged
+  m_TagString: Drop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6713, y: 1, z: 5.5559}
-  m_LocalScale: {x: 1.2815185, y: 0.11613, z: 0.39210287}
+  m_LocalScale: {x: 6.05, y: 0.5482453, z: 1.8511027}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6939056361924557744}
