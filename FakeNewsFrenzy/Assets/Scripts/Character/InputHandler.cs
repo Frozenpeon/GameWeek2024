@@ -122,6 +122,15 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public void ValidWeapon(InputAction.CallbackContext obj)
+    {
+        if(!obj.started) return;
+        if (_UIctrl)
+        {
+            _UIctrl.ValidWeapon();
+        }
+    }
+
 
 
 }

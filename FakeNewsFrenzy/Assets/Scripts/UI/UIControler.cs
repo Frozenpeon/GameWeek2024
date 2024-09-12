@@ -36,4 +36,8 @@ public class UIControler : MonoBehaviour
             rightWeapponSelect.onClick.Invoke();
         }
     }
+
+    public void ValidWeapon()
+    {
+    }
 }
