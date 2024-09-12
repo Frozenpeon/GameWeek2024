@@ -59,7 +59,6 @@ public class WeaponHandler : MonoBehaviour
         {
             StartCoroutine(Reloading());
             bulletCount = 0;
-            Debug.Log(weapon.reloadSound);
             GetComponent<SoundEmmiter>().PlaySound(weapon.reloadSound);
         }
     }
