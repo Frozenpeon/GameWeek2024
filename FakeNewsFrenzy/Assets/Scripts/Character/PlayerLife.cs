@@ -18,6 +18,14 @@ public class PlayerLife : MonoBehaviour
         _LifePoint = _StartLifePoint;
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            LoseLifePoint();
+        }
+    }
+
     public void LoseLifePoint()
     {
         if (isInvicible || _LifePoint <= 0) return;
@@ -26,8 +34,10 @@ public class PlayerLife : MonoBehaviour
         {
             //Mort
             Debug.Log("Tié mort le sang");
+            GetComponent<Movement>().spriteChanger.ShowDeath();
             GetComponent<Movement>().enabled = false;
             _ReviveZoneCollider.enabled = true;
+
             return;
         }
 
@@ -41,6 +51,7 @@ public class PlayerLife : MonoBehaviour
     {
         _ReviveZoneCollider.enabled = false;
         GetComponent<Movement>().enabled = true;
+        GetComponent<Movement>().spriteChanger.ShowWeapon();
         _LifePoint = _StartLifePoint;
     }
 
