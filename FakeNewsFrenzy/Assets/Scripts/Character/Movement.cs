@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
 
     public GenadeLauncher grenadeLauncher;
 
-
+    public SpriteChanger spriteChanger;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -118,12 +118,14 @@ public class Movement : MonoBehaviour
     public void StartPush()
     {
         isBeingPushed = true;
+        spriteChanger.ShowStun();
         StartCoroutine(WaitToBePush());
     }
 
     IEnumerator WaitToBePush()
     {
         yield return new WaitForSeconds(1.2f);
+        spriteChanger.ShowWeapon();
         isBeingPushed = false;
     }
 
