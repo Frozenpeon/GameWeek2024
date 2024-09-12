@@ -12,7 +12,7 @@ public class EnemyDetection : MonoBehaviour
     private GameObject _Player;
 
     public EnemyWeaponPicker EnemyWeaponPicker;
-
+    public EnemySprites sprites;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,9 @@ public class EnemyDetection : MonoBehaviour
     //Pour montrer l'arme/passer le sprite en mode aggro
     public void Aggro()
     {
-        EnemyWeaponPicker.GoAggroVisual();
+        if (EnemyWeaponPicker != null)
+            EnemyWeaponPicker.GoAggroVisual();
+        else sprites.ShowMele();
     }
     // Update is called once per frame
     void Update()
