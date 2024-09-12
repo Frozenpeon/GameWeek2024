@@ -29,6 +29,9 @@ public class Movement : MonoBehaviour
 
     public WeaponSwapper WeaponSwapper;
 
+    public GenadeLauncher grenadeLauncher;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -43,11 +46,9 @@ public class Movement : MonoBehaviour
     {
         if (GrenadeCount + 1 > maxGrenades)
         {
-            Debug.Log("Got too much nades already");
             return;
         }
         GrenadeCount++;
-        Debug.Log("I got nades : " + GrenadeCount);
     }
     public int GetPlayerIndex()
     {
@@ -57,6 +58,15 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+        if (Input.GetMouseButtonUp(1))
+        {
+            ThrowANade();
+        }
+    }
+
+    public void ThrowANade()
+    {
+        grenadeLauncher.ThrowAGrenade();
     }
 
     public void ChangeWeapon(WeaponType weapon)
