@@ -76,6 +76,7 @@ public class InputHandler : MonoBehaviour
             if (wp == null) return;
 
             _Movement.GetComponentInChildren<WeaponHandler>().isShooting = obj.ReadValue<float>() > 0;
+            _Movement.GetComponentInChildren<WeaponHandler>().idShooter = _Movement._PlayerIndex;
         }
     }
 
