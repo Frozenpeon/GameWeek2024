@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4285ee45b5b034f9b2500a9fc7d704, type: 3}
   m_Name: AssaultRifle
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5453886261738243869, guid: 557c27450efa99442a5aa04bdb4e2336, type: 3}
+  Type: 0
+  bullet: {fileID: 5453886261738243869, guid: 5a6b5463896dab54a856da2f31f486b6, type: 3}
   spread: 5
   fireRate: 0.1
   power: 50

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class WeaponHandler : MonoBehaviour
 {
     public Transform firePosiion;
-
+    //2 30 6
     [SerializeField]
     private SO_BaseWeapon SOWeapon;
     [HideInInspector]
@@ -17,6 +17,9 @@ public class WeaponHandler : MonoBehaviour
 
     [HideInInspector] public Gamepad gamepad;
 
+    private int bulletCount;
+    private bool isReloading;
+
     public int idShooter = -1;
 
     private void Start()
@@ -25,7 +28,7 @@ public class WeaponHandler : MonoBehaviour
     }
     void Update()
     {
-        if (isShooting) Shoot(gamepad);
+        if (isShooting && !isReloading) Shoot(gamepad);
         elapsedTime += Time.deltaTime;
 
     }
@@ -43,5 +46,19 @@ public class WeaponHandler : MonoBehaviour
             RumbleManager.instance.StartShaking(pGamepad, weapon.power / 100, weapon.power / 100, 0.1f);
         }
         elapsedTime = 0;
+        ++bulletCount;
+
+        if(weapon.bulletPerReload <= bulletCount)
+        {
+            StartCoroutine(Reloading());
+            bulletCount = 0;
+        }
+    }
+
+    IEnumerator Reloading()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(weapon.ReloadTime);
+        isReloading = false;
     }
 }

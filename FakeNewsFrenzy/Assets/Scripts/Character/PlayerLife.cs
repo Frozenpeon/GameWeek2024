@@ -11,7 +11,13 @@ public class PlayerLife : MonoBehaviour
 
     [HideInInspector] public InputHandler myIH;
 
+    [SerializeField] private Transform spriteContainer;
+
     private bool isInvicible = false;
+
+    private Coroutine blinkCoroutine;
+
+    private Transform _currentSprite;
 
     private void Start()
     {
@@ -50,6 +56,7 @@ public class PlayerLife : MonoBehaviour
         Debug.Log("Tu t'es pris un dégats chakal, prudence est mère de sureté n'oublie jamais");
 
         StartCoroutine(WaitInvicible());
+        blinkCoroutine = StartCoroutine(BlinkPlayer());
     }
 
     public void Revive()
@@ -62,19 +69,33 @@ public class PlayerLife : MonoBehaviour
 
     IEnumerator WaitInvicible()
     {
-        float pCount = 0;
-        UnityEngine.Color color = GetComponent<Renderer>().material.color;
         isInvicible = true;
-        while (pCount < _InvicibleTime)
-        {
-            yield return null;
-            GetComponent<Renderer>().material.color = new UnityEngine.Color(color.r,color.g, color.b,Mathf.Lerp(1f, .5f, Mathf.Cos(pCount * 5) / 2 + .5f));
-            pCount += Time.deltaTime;
-        }
+        yield return new WaitForSeconds(_InvicibleTime);
         isInvicible = false;
-        GetComponent<Renderer>().material.color = new UnityEngine.Color(color.r, color.g, color.b, 1.0f);
     }
 
+    IEnumerator BlinkPlayer()
+    {
+        Transform child = null;
+
+        UnityEngine.Color color;
+        float _count = 0;
+        while(true)
+        {
+            foreach (Transform pChild in spriteContainer)
+            {
+                if (pChild.gameObject.activeInHierarchy)
+                {
+                    child = pChild;
+                    break;
+                }
+            }
+            color = child.GetComponent<Renderer>().material.color;
+            child.GetComponent<Renderer>().material.color = new UnityEngine.Color(color.r, color.g, color.b, Mathf.Lerp(1f, .5f, Mathf.Cos(_count * 5) / 2 + .5f));
+            _count += Time.deltaTime;
+            yield return null;
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {
