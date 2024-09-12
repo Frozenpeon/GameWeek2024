@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,10 +53,14 @@ public class WeaponHandler : MonoBehaviour
         }
         shoot.Invoke(weapon.power);      
         ++bulletCount;
+        GetComponent<SoundEmmiter>().PlaySound(weapon.shotSound);
+
         if(weapon.bulletPerReload <= bulletCount)
         {
             StartCoroutine(Reloading());
             bulletCount = 0;
+            Debug.Log(weapon.reloadSound);
+            GetComponent<SoundEmmiter>().PlaySound(weapon.reloadSound);
         }
     }
 

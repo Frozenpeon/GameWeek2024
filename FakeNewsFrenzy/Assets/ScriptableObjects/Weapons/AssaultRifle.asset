@@ -15,7 +15,23 @@ MonoBehaviour:
   Type: 0
   bullet: {fileID: 5453886261738243869, guid: 5a6b5463896dab54a856da2f31f486b6, type: 3}
   spread: 5
+  shotSound:
+    Guid:
+      Data1: 939785946
+      Data2: 1266003706
+      Data3: 511760313
+      Data4: 1951956532
+    Path: event:/Shoot_rifle
+  reloadSound:
+    Guid:
+      Data1: 214878149
+      Data2: 1304876157
+      Data3: -1715931753
+      Data4: -812639343
+    Path: event:/Reload_rifle
   fireRate: 0.1
+  bulletPerReload: 0
+  ReloadTime: 0
   power: 50
   bulletPerShot: 1
   objectDrop: {fileID: 2633961693336932874, guid: fa81444170f07a84ba2361344fcfe923, type: 3}

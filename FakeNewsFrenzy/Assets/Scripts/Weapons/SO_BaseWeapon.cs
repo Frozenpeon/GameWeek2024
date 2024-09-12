@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,6 +12,8 @@ public class SO_BaseWeapon : ScriptableObject
     [SerializeField] protected GameObject bullet;
 
     [SerializeField] protected float spread;
+    [SerializeField] public EventReference shotSound;
+    [SerializeField] public EventReference reloadSound;
 
     /// <summary>
     /// Time between bullets.

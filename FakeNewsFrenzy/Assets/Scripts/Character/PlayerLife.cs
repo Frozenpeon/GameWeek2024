@@ -93,7 +93,7 @@ public class PlayerLife : MonoBehaviour
                 }
             }
             color = child.GetComponent<Renderer>().material.color;
-            child.GetComponent<Renderer>().material.color = new UnityEngine.Color(color.r, color.g, color.b, Mathf.Lerp(1f, .5f, Mathf.Cos(_count * 5) / 2 + .5f));
+            child.GetComponent<Renderer>().material.color = new UnityEngine.Color(Mathf.Lerp(1f, .5f, Mathf.Cos(_count * 5) / 2 + .5f), color.g, color.b, 1.0f);
             _count += Time.deltaTime;
             yield return null;
         }

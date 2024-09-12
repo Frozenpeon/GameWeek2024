@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2266136940895594351}
   - component: {fileID: 1389189082252832721}
+  - component: {fileID: 7894256121241140184}
   m_Layer: 0
   m_Name: Deseart_Eagle
   m_TagString: Untagged
@@ -51,6 +52,19 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 84ae024ad42692044bf7f991146979c8, type: 2}
   elapsedTime: 0
   isShooting: 0
+  idShooter: -1
+--- !u!114 &7894256121241140184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838461233182340930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3993488359105761614
 GameObject:
   m_ObjectHideFlags: 0

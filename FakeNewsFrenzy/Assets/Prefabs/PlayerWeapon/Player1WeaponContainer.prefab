@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 6582973064227409184}
   - component: {fileID: 413701240114093181}
   - component: {fileID: 4095253932852303748}
+  - component: {fileID: 6323835805660513058}
   m_Layer: 0
   m_Name: AR
   m_TagString: Untagged
@@ -163,7 +164,21 @@ MonoBehaviour:
   firePosiion: {fileID: 2996980012102571389}
   SOWeapon: {fileID: 11400000, guid: 42f8ba38a694c454ab6ed5bdd0fe901e, type: 2}
   weapon: {fileID: 0}
+  elapsedTime: 0
   isShooting: 0
+  idShooter: -1
+--- !u!114 &6323835805660513058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4359861571659178012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5337598980418916680
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +190,7 @@ GameObject:
   - component: {fileID: 4304917408414516129}
   - component: {fileID: 5661580140563865775}
   - component: {fileID: 8349461165887883040}
+  - component: {fileID: 34811673137835720}
   m_Layer: 0
   m_Name: DesertEagle
   m_TagString: Untagged
@@ -265,7 +281,21 @@ MonoBehaviour:
   firePosiion: {fileID: 2423338465103736301}
   SOWeapon: {fileID: 11400000, guid: 84ae024ad42692044bf7f991146979c8, type: 2}
   weapon: {fileID: 0}
+  elapsedTime: 0
   isShooting: 0
+  idShooter: -1
+--- !u!114 &34811673137835720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337598980418916680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7206627465127557960
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef1c2936349c76469a2961d2b61e91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   AR_Weapon: {fileID: 4359861571659178012}
   Shotgun_Weapon: {fileID: 7620981787684425207}
   Pistol_Weapon: {fileID: 5337598980418916680}
@@ -327,6 +358,7 @@ GameObject:
   - component: {fileID: 8149760227568903442}
   - component: {fileID: 1746875339942369880}
   - component: {fileID: 8618971426282157644}
+  - component: {fileID: 8080758958392755192}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -417,7 +449,21 @@ MonoBehaviour:
   firePosiion: {fileID: 6906910373268644738}
   SOWeapon: {fileID: 11400000, guid: ccb14a64f94185d4290aa3a4a13e849d, type: 2}
   weapon: {fileID: 0}
+  elapsedTime: 0
   isShooting: 0
+  idShooter: -1
+--- !u!114 &8080758958392755192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7620981787684425207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8746238650140316967
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,23 @@ MonoBehaviour:
   Type: 2
   bullet: {fileID: 5453886261738243869, guid: 557c27450efa99442a5aa04bdb4e2336, type: 3}
   spread: 0.5
+  shotSound:
+    Guid:
+      Data1: -1724677764
+      Data2: 1220079312
+      Data3: 208520363
+      Data4: 1780694450
+    Path: event:/Shoot_deagle
+  reloadSound:
+    Guid:
+      Data1: -2026193338
+      Data2: 1291501140
+      Data3: 315535753
+      Data4: -72507693
+    Path: event:/Reload_deagle
   fireRate: 0.4
+  bulletPerReload: 0
+  ReloadTime: 0
   power: 1000
   bulletPerShot: 1
   objectDrop: {fileID: 249351875033740828, guid: e8bb6b1e8fe5fda4495d538f13023e93, type: 3}
