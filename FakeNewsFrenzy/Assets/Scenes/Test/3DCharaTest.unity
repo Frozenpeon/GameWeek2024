@@ -688,6 +688,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6206687596803782517, guid: a86274ab51b056243a2133b0f08e0d9a, type: 3}
+      propertyPath: distanceToAttack
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7359950261989557048, guid: a86274ab51b056243a2133b0f08e0d9a, type: 3}
       propertyPath: m_Name
       value: Real_Enemy_Ranged

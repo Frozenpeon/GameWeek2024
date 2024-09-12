@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
 
     public int dmg = 5;
 
+    public bool isEnemy;
     private void Start()
     {
 
@@ -47,9 +48,16 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag == "Enemy")
+
+        if (collision.gameObject.tag == "Enemy" && !isEnemy)
         {
             collision.transform.GetComponent<EnemyLife>().TakesDmg(dmg);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Player" && isEnemy)
+        {
+            collision.gameObject.GetComponent<PlayerLife>().LoseLifePoint();
             Destroy(gameObject);
         }
 

@@ -13,7 +13,10 @@ public class PushAttack : MonoBehaviour
 
     public void OnAttack()
     {
-        //GetComponent<Movement>().spriteChanger.ShowAttack();
+        if (GetComponent<Movement>().isBeingPushed)
+            return;
+
+        GetComponent<Movement>().spriteChanger.ShowAttack();
 
         Collider[] colliders = Physics.OverlapBox(transform.position + transform.forward * 3,new Vector3(3,6,3));
 
