@@ -26,10 +26,10 @@ public class TitleScreen : MonoBehaviour
     {
         
     }
-    public void OnSelectMenu(InputAction.CallbackContext obj)
+    public void OnSelectMenu(bool canceled)
     {
-        if (obj.canceled && gameStarted == false)
-        {
+        if (canceled && gameStarted == false)
+        {   
             gameStarted = true;
             _MenuScreen.SetActive(true);
             eventSystem.SetSelectedGameObject(_PlayButton);
