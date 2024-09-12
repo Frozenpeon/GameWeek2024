@@ -45,6 +45,7 @@ public class EnemyDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("Seeing smth");
         if (collision.gameObject.CompareTag("Player") && !isPlayerDetected)
         {
             Debug.Log("Player in range");
@@ -54,9 +55,9 @@ public class EnemyDetection : MonoBehaviour
         }
     }
 
-
     private void OnTriggerExit(Collider collision)
     {
+        Debug.Log("It got away");
         if (collision.gameObject.CompareTag("Player"))
         {
             // Deactivating the raycast verification if the player left unseen

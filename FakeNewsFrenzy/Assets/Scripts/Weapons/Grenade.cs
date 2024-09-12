@@ -21,9 +21,14 @@ public class Grenade : MonoBehaviour
 
     float elapsedTime  = 0;
 
+    public SpriteRenderer nade_Sprite;
+
+    Coroutine corou;
+
     private void Start()
     {
         rangeCollider.radius = range;
+        corou = StartCoroutine(Blinking());
     }
 
     private void Update()
@@ -44,8 +49,8 @@ public class Grenade : MonoBehaviour
             force.y = 0;
             objToPush.Push(force, power, transform);
         }
+        StopAllCoroutines();
         Destroy(gameObject);
-        Debug.Log("BOOOOOM");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,7 +58,6 @@ public class Grenade : MonoBehaviour
         if (other.GetComponent<PushableObject>() != null)
         {
             pushObjects.Add(other.GetComponent<PushableObject>());
-            Debug.Log("Pushable in range");
         }
        
     }
@@ -63,8 +67,22 @@ public class Grenade : MonoBehaviour
         if (other.GetComponent<PushableObject>() != null)
         {
             pushObjects.Remove(other.GetComponent<PushableObject>());
-            Debug.Log("Pushable got out of range");
         }
-
     }
+
+    List <Color> colorList = new List<Color>();
+    int i = 0;
+    private IEnumerator Blinking()
+    {
+        colorList.Add(Color.red);
+        colorList.Add(Color.white);
+        while (true)
+        {
+            nade_Sprite.color = colorList[i++ % 2];
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+
+
 }
