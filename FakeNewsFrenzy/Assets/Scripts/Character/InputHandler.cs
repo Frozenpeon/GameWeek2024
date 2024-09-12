@@ -89,6 +89,14 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public void OnGrenade(InputAction.CallbackContext obj)
+    {
+        if(_Movement != null)
+        {
+            _Movement.ThrowANade();
+        }
+    }
+
     public void OnRevive(InputAction.CallbackContext obj)
     {
         ReviveKeyPress = obj.performed;

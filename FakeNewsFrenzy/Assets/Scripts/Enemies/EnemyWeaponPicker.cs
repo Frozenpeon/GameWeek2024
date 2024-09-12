@@ -12,7 +12,7 @@ public class EnemyWeaponPicker : MonoBehaviour
 
     public GameObject AR, Shotgun, Pistol;
 
-    WeaponHandler activWeapon;
+    public WeaponHandler activWeapon;
 
 
 

@@ -14,7 +14,7 @@ public class EnemyDrops : MonoBehaviour
     /// </summary>
     [SerializeField] private int grenadeDropRate = 80;
 
-    [SerializeField] private WeaponHandler currentWeapon;
+    private WeaponHandler currentWeapon;
     private GameObject weaponLoot;
     private GameObject _WeaponLoot;
 
@@ -24,6 +24,7 @@ public class EnemyDrops : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentWeapon = transform.GetChild(0).GetComponent<EnemyWeaponPicker>().activWeapon;
         weaponLoot = currentWeapon.weapon.objectDrop;
     }
 
@@ -37,13 +38,12 @@ public class EnemyDrops : MonoBehaviour
 
 
     //Call this method when the enemy dies
-    private void onDeathDrop()
+    public void onDeathDrop()
     {
 
             int weaponResult = Random.Range(0, 101);
             if (weaponResult <= weaponDropRate)
             {
-                Debug.Log($"DroppingWeapon, result = {weaponResult}");
                 //Dropping logic
                 _WeaponLoot = Instantiate(weaponLoot);
                 _WeaponLoot.transform.position = transform.position;
@@ -54,7 +54,6 @@ public class EnemyDrops : MonoBehaviour
             int grenadeResult = Random.Range(0, 101);
             if (grenadeResult <= grenadeDropRate)
             {
-                Debug.Log($"DroppingGrenade, result = {grenadeResult}");
                 //Dropping logic
                 _GrenadeLoot = Instantiate(grenadeLoot);
                 _GrenadeLoot.transform.position = transform.position + new Vector3(0,1f,0);

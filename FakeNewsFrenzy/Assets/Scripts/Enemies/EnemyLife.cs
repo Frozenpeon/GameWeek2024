@@ -10,7 +10,7 @@ public class EnemyLife : MonoBehaviour
     {
         life -= amount;
         if (life <= 0)
-            Destroy(gameObject);
+            GetComponent<EnemyDrops>().onDeathDrop() ;
     }
 
 }

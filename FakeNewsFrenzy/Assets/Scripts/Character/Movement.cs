@@ -60,15 +60,11 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
-        if (Input.GetMouseButtonUp(1))
-        {
-            ThrowANade();
-        }
     }
 
     public void ThrowANade()
     {
-        grenadeLauncher.ThrowAGrenade();
+       grenadeLauncher.ThrowAGrenade();
     }
 
     public void ChangeWeapon(WeaponType weapon)
