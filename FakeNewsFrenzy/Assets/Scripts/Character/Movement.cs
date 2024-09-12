@@ -25,7 +25,9 @@ public class Movement : MonoBehaviour
     public int GrenadeCount = 0;
     public int maxGrenades = 1;
 
-    public static List<Movement> movements = new List<Movement>(); 
+    public static List<Movement> movements = new List<Movement>();
+
+    public WeaponSwapper WeaponSwapper;
 
     private void Start()
     {
@@ -55,6 +57,16 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+    }
+
+    public void ChangeWeapon(WeaponType weapon)
+    {
+        if (WeaponSwapper == null)
+        {
+            Debug.Log("Y'a pas de swapper");
+            return;
+        }
+        WeaponSwapper.ChangeAWeapon(weapon);
     }
 
     private void Move()
