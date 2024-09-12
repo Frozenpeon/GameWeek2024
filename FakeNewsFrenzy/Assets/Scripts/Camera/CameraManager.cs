@@ -76,7 +76,9 @@ public class CameraManager : MonoBehaviour
 
     private void DoActionBetween()
     {
-        if (!IsPointInsideEllipse(Movement.movements[0].transform.position, Movement.movements[1].transform.position) ) SetModeFollowPlayer();
+        Vector3 midPos = GetMidPos();
+        midPos.y = Movement.movements[0].transform.position.y;
+        if (!IsPointInsideEllipse(Movement.movements[0].transform.position, midPos) ) SetModeFollowPlayer();
     }
     
     private void SetModeFollowPlayer()
@@ -87,7 +89,9 @@ public class CameraManager : MonoBehaviour
 
     private void DoActionFollowPlayer()
     {
-        if (IsPointInsideEllipse(Movement.movements[0].transform.position, Movement.movements[1].transform.position) ) SetModeBetween();
+        Vector3 midPos = GetMidPos();
+        midPos.y = Movement.movements[0].transform.position.y;
+        if (IsPointInsideEllipse(Movement.movements[0].transform.position, midPos) ) SetModeBetween();
     }
 
     private void OnDestroy()
@@ -97,8 +101,8 @@ public class CameraManager : MonoBehaviour
 
     private bool IsPointInsideEllipse(Vector3 pos, Vector3 centerPos)
     {
-        float a = splitDistance.x /1f;
-        float b = splitDistance.y  / 1f;
+        float a = splitDistance.x /2f;
+        float b = splitDistance.y  / 2f;
         float dx = pos.x - centerPos.x;
         float dy = pos.z - centerPos.z;
 

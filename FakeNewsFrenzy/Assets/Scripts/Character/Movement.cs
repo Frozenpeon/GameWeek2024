@@ -96,7 +96,7 @@ public class Movement : MonoBehaviour
 
     public void MakePlayerLookAt(Vector2 _Dir)
     {
-        if (isRolling) return;
+        if (isRolling || GetComponent<PlayerLife>().GetLifePoint() <= 0) return;
 
         transform.LookAt(new Vector3(transform.position.x + _Dir.x, transform.position.y, transform.position.z + _Dir.y ));
     }
@@ -108,7 +108,7 @@ public class Movement : MonoBehaviour
 
     public void SetRoll()
     {
-        if(isBeingPushed) return;
+        if(isBeingPushed || GetComponent<PlayerLife>().GetLifePoint() <= 0) return;
         isRolling = true;
 
         IEnumerator corountine = DoActionRoll(_Dir.normalized);
