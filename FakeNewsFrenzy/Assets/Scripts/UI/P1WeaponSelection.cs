@@ -12,6 +12,7 @@ public class P1WeaponSelection : MonoBehaviour
     [SerializeField] private Image weaponImg;
     private WeaponType currentWeapon;
     private int index = 0;
+    [SerializeField] private int _playerIndex = 0;
 
     private bool isWeaponValid = false;
     // Start is called before the first frame update
@@ -41,6 +42,7 @@ public class P1WeaponSelection : MonoBehaviour
     private void UpdateImage()
     {
         currentWeapon = (WeaponType)index;
+        WeaponSelectionManager.weapons[_playerIndex] = currentWeapon;
         weaponImg.sprite = weaponsSprites[index];
     }
 
@@ -52,10 +54,5 @@ public class P1WeaponSelection : MonoBehaviour
             index++;
 
         UpdateImage();
-    }
-
-    public void ValidWeapon()
-    {
-
     }
 }

@@ -3197,6 +3197,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4486811529172714069, guid: 4caa97ac43945ae408b7e1332a05540d, type: 3}
+      propertyPath: _playerIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486811529172714069, guid: 4caa97ac43945ae408b7e1332a05540d, type: 3}
       propertyPath: weaponsSprites.Array.data[1]
       value: 
       objectReference: {fileID: 21300000, guid: 518335128af1bd54c8fff18bee9bfa2a, type: 3}
