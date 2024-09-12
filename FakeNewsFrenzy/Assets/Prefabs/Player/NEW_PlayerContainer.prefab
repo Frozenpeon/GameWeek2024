@@ -563,6 +563,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5465662335648512358, guid: dd6b780072cde92458b8b725094bafa8, type: 3}
+      propertyPath: spriteContainer
+      value: 
+      objectReference: {fileID: 4201337937111485955}
+    - target: {fileID: 5465662335648512358, guid: dd6b780072cde92458b8b725094bafa8, type: 3}
       propertyPath: _ReviveZoneCollider
       value: 
       objectReference: {fileID: 9046633445027333394}
