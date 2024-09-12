@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
 
     private Vector3 _Dir= Vector2.zero;
     [HideInInspector] public bool canMoveWithMouse = false;
-    private bool isBeingPushed = false;
+    public bool isBeingPushed = false;
 
     [SerializeField] private Camera _Cam;
 

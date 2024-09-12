@@ -6,6 +6,8 @@ public class SpriteChanger : MonoBehaviour
 {
     public GameObject WeaponSprite, deathSprite, stunSprite, attackSprite;
 
+    Coroutine corou;
+
     private void Start()
     {
         deathSprite.SetActive(false);
@@ -23,11 +25,24 @@ public class SpriteChanger : MonoBehaviour
 
     public void ShowAttack()
     {
+        StopAllCoroutines();
+        ShowWeapon();
+        corou = StartCoroutine(ShowAttackCorou());
+    }
 
+    private IEnumerator ShowAttackCorou()
+    {
+        deathSprite.SetActive(false);
+        stunSprite.SetActive(false);
+        WeaponSprite.SetActive(false);
+        attackSprite.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        ShowWeapon();
     }
 
     public void ShowStun()
     {
+        StopAllCoroutines();
         deathSprite.SetActive(false);
         stunSprite.SetActive(true);
         WeaponSprite.SetActive(false);
@@ -39,6 +54,7 @@ public class SpriteChanger : MonoBehaviour
         deathSprite.SetActive(false);
         stunSprite.SetActive(false);
         WeaponSprite.SetActive(true);
+        attackSprite.SetActive(false);
     }
 
 }
