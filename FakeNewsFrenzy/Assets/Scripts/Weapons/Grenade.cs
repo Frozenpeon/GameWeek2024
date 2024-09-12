@@ -20,7 +20,7 @@ public class Grenade : MonoBehaviour
 
     private List<PushableObject> pushObjects = new List<PushableObject>();
 
-    private List<EnemyLife> enmiesToKill = new List<EnemyLife>();
+    private List<GameObject> enmiesToKill = new List<GameObject>();
 
     float elapsedTime  = 0;
 
@@ -53,14 +53,18 @@ public class Grenade : MonoBehaviour
     {
         foreach (PushableObject objToPush in pushObjects)
         {
-            Vector3 force = (objToPush.transform.position - transform.position).normalized;
-            force.y = 0;
-            objToPush.Push(force, power, transform);
+            if (objToPush.gameObject != null)
+            {
+                Vector3 force = (objToPush.transform.position - transform.position).normalized;
+                force.y = 0;
+                objToPush.Push(force, power, transform);
+            }
         }
 
-        foreach (EnemyLife go in enmiesToKill)
+        foreach (GameObject go in enmiesToKill)
         {
-            go.TakesDmg(Damage);
+            if (go.gameObject != null)
+                go.GetComponent<EnemyLife>().TakesDmg(Damage);
         }
         StopAllCoroutines();
         Destroy(gameObject);
@@ -74,7 +78,7 @@ public class Grenade : MonoBehaviour
         }
         if (other.GetComponent<EnemyLife>() != null)
         {
-            enmiesToKill.Add(other.GetComponent<EnemyLife>());
+            enmiesToKill.Add(other.gameObject);
         }
        
     }
@@ -87,7 +91,7 @@ public class Grenade : MonoBehaviour
         }
         if (other.GetComponent<EnemyLife>() != null)
         {
-            enmiesToKill.Remove(other.GetComponent<EnemyLife>());
+            enmiesToKill.Remove(other.gameObject);
         }
     }
 
