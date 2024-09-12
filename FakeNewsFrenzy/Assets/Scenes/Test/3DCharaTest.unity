@@ -808,7 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPlayer: {fileID: 259138893}
-  secondPlayer: {fileID: 1102317666}
+  secondPlayer: {fileID: 1545288613}
   firstCam: {fileID: 6195034501293300882}
   secondCam: {fileID: 896077969}
   _CamMat: {fileID: 2100000, guid: 320ad21612046114ba87b50944ffe83b, type: 2}
@@ -1336,11 +1336,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 970fefbc9ad64af40aedc2e3d5a45ce9, type: 3}
---- !u!4 &1102317666 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8270327880801048585, guid: b5b71047bcfaaff49b2c7bb8f8b44b62, type: 3}
-  m_PrefabInstance: {fileID: 1545288612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1145832734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,6 +1739,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5b71047bcfaaff49b2c7bb8f8b44b62, type: 3}
+--- !u!4 &1545288613 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1140945561751096398, guid: b5b71047bcfaaff49b2c7bb8f8b44b62, type: 3}
+  m_PrefabInstance: {fileID: 1545288612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1545348575
 PrefabInstance:
   m_ObjectHideFlags: 0
