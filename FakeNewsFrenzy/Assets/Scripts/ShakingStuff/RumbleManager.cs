@@ -36,15 +36,19 @@ public class RumbleManager : MonoBehaviour
         pad.SetMotorSpeeds(highFrequency, lowFrequency);
 
         if (padID == 0)
+        {
             RumblingCoroutinePlayerOne = StartCoroutine(StopRumble(duration, pad));
+        }
         else
+        {
             RumblingCoroutinePlayerTwo = StartCoroutine(StopRumble(duration, pad));
+        }
 
     }
 
     private IEnumerator StopRumble(float duration, Gamepad pad)
     {
-
+        
         float elapsedTime = 0;
         while (elapsedTime < duration)
         {

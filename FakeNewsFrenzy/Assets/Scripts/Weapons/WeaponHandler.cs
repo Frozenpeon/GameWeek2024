@@ -15,13 +15,15 @@ public class WeaponHandler : MonoBehaviour
     public float elapsedTime;
     [HideInInspector] public bool isShooting = false;
 
+    public int idShooter = -1;
+
     private void Start()
     {
         weapon = Instantiate(SOWeapon);
     }
     void Update()
     {
-        if (isShooting) Shoot();
+        if (isShooting) Shoot(idShooter);
         elapsedTime += Time.deltaTime;
 
     }
@@ -36,7 +38,7 @@ public class WeaponHandler : MonoBehaviour
         weapon.Fire(firePosiion.right, firePosiion.position);
         if (PlayerID != -1)
         {
-            RumbleManager.instance.StartShaking(PlayerID, weapon.power / 400, weapon.power / 400, 0.1f);
+            RumbleManager.instance.StartShaking(PlayerID, weapon.power / 100, weapon.power / 100, 0.1f);
         }
         elapsedTime = 0;
     }
