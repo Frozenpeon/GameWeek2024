@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePosiion: {fileID: 3933235323612713673}
-  SOWeapon: {fileID: 11400000, guid: 84ae024ad42692044bf7f991146979c8, type: 2}
+  SOWeapon: {fileID: 11400000, guid: 9611993b6e510584997c6d2601948f1b, type: 2}
   weapon: {fileID: 11400000, guid: 84ae024ad42692044bf7f991146979c8, type: 2}
   elapsedTime: 0
   isShooting: 0
+  idShooter: -1
 --- !u!1 &1500968188099804613
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,10 +183,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePosiion: {fileID: 8851936248004454264}
-  SOWeapon: {fileID: 11400000, guid: 42f8ba38a694c454ab6ed5bdd0fe901e, type: 2}
+  SOWeapon: {fileID: 11400000, guid: d89efca896bf5f343815b6c4c3d867e8, type: 2}
   weapon: {fileID: 11400000, guid: 42f8ba38a694c454ab6ed5bdd0fe901e, type: 2}
   elapsedTime: 0
   isShooting: 0
+  idShooter: -1
 --- !u!1 &1801804037323836718
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,10 +266,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePosiion: {fileID: 2924505896406576205}
-  SOWeapon: {fileID: 11400000, guid: ccb14a64f94185d4290aa3a4a13e849d, type: 2}
+  SOWeapon: {fileID: 11400000, guid: 725e99823027fd240b39c07786b6174a, type: 2}
   weapon: {fileID: 11400000, guid: ccb14a64f94185d4290aa3a4a13e849d, type: 2}
   elapsedTime: 0
   isShooting: 0
+  idShooter: -1
 --- !u!1 &3993488359105761614
 GameObject:
   m_ObjectHideFlags: 0
