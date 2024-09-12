@@ -9,13 +9,29 @@ public class InputHandler : MonoBehaviour
     private Movement _Movement;
     private PlayerInput _PlayerInput;
 
+    [SerializeField] private InputActionReference _ShootAction;
+
+
+
+    private bool ReviveKeyPress= false;
+
     private void Start()
     {
         _PlayerInput = GetComponent<PlayerInput>();
         Movement[] movers = FindObjectsOfType<Movement>();
         int index = _PlayerInput.playerIndex;
         _Movement = movers.FirstOrDefault(m => m.GetPlayerIndex() == index);
+        _Movement.GetComponent<PlayerLife>().myIH = this;
+       
 
+
+    }
+
+  
+
+
+    private void Update()
+    {
     }
 
     public void OnMove(InputAction.CallbackContext obj)
@@ -29,13 +45,13 @@ public class InputHandler : MonoBehaviour
     
     public void OnRoll(InputAction.CallbackContext obj)
     {
+        if(obj.canceled) return;
         if (_Movement != null) _Movement.SetRoll();
     }
 
     public void OnPush(InputAction.CallbackContext obj)
     {
         if (_Movement != null) _Movement.GetComponent<PushAttack>().OnAttack();
-
     }
 
     public void OnLook(InputAction.CallbackContext obj)
@@ -46,6 +62,37 @@ public class InputHandler : MonoBehaviour
             _Movement.MakePlayerLookAt(obj.ReadValue<Vector2>());
         }
     }
+
+    public void onShoot(InputAction.CallbackContext obj)
+    {
+        if (_Movement != null)
+        {
+            WeaponHandler wp = _Movement.GetComponentInChildren<WeaponHandler>();
+
+            if (wp == null) return;
+
+            _Movement.GetComponentInChildren<WeaponHandler>().isShooting = obj.ReadValue<float>() > 0;
+        }
+    }
+
+    public void OnEquip(InputAction.CallbackContext obj)
+    {
+        if (_Movement != null)
+        {
+            _Movement.GetComponent<EquipWeapon>().EquipNewWeapon(_PlayerInput.playerIndex);
+        }
+    }
+
+    public void OnRevive(InputAction.CallbackContext obj)
+    {
+        ReviveKeyPress = obj.performed;
+    }
+
+    public bool GetReviveKey()
+    {
+        return ReviveKeyPress;
+    }
+
 
 
 }

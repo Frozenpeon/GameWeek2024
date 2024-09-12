@@ -13,11 +13,20 @@ public class PushAttack : MonoBehaviour
 
     public void OnAttack()
     {
+        Collider[] colliders = Physics.OverlapBox(transform.position + transform.forward * 3,new Vector3(1,2,1));
+
+        foreach (Collider collider in colliders)
+        {
+            if(collider.TryGetComponent(out PushableObject pPo)){
+                if(pPo.transform != transform) pPo.Push(transform.forward, 20, transform);
+            }
+        }
+
         if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, 1))
         {
             if(hitInfo.collider.transform.TryGetComponent(out PushableObject test))
             {
-                test.Push(transform.forward, 20);
+                test.Push(transform.forward, 20, transform);
             }
         }
 

@@ -19,6 +19,8 @@ public class CameraManager : MonoBehaviour
 
     private static CameraManager instance;
 
+    private Vector2 splitDistance;
+
     private void Awake()
     {
         if(instance != null)
@@ -31,7 +33,11 @@ public class CameraManager : MonoBehaviour
 
     void Start()
     {
-        SetModeBetween();
+        doAction = DoActionBetween;
+
+        float frustumHeight = 2.0f * PlayerCamera._CameraHeight * Mathf.Tan(GetComponent<Camera>().fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float frustumWidth = frustumHeight * GetComponent<Camera>().aspect;
+        splitDistance = new Vector2(frustumWidth, frustumHeight) / 2f;
     }
 
     public static CameraManager GetInstance()
@@ -52,7 +58,7 @@ public class CameraManager : MonoBehaviour
     {
         Vector3 distBetweenPlayers = secondPlayer.position - firstPlayer.position;
         Vector3 midPos = firstPlayer.position + distBetweenPlayers / 2f;
-        midPos.y = 20;
+        midPos.y = PlayerCamera._CameraHeight;
 
         return midPos;
     }
@@ -60,12 +66,6 @@ public class CameraManager : MonoBehaviour
     public Vector3 GetVecBetweenPlayer()
     {
         return secondPlayer.position - firstPlayer.position;
-    }
-
-    public float GetDistBetweenPlayers()
-    {
-        Vector3 distBetweenPlayers = secondPlayer.position - firstPlayer.position;
-        return distBetweenPlayers.magnitude;
     }
 
     private void SetModeBetween()
@@ -76,7 +76,7 @@ public class CameraManager : MonoBehaviour
 
     private void DoActionBetween()
     {
-        if (GetDistBetweenPlayers() > 10) SetModeFollowPlayer();
+        if (!IsPointInsideEllipse(Movement.movements[0].transform.position, Movement.movements[1].transform.position) ) SetModeFollowPlayer();
     }
     
     private void SetModeFollowPlayer()
@@ -87,11 +87,21 @@ public class CameraManager : MonoBehaviour
 
     private void DoActionFollowPlayer()
     {
-        if (GetDistBetweenPlayers() < 10) SetModeBetween();
+        if (IsPointInsideEllipse(Movement.movements[0].transform.position, Movement.movements[1].transform.position) ) SetModeBetween();
     }
 
     private void OnDestroy()
     {
         if(instance == this) instance = null;
+    }
+
+    private bool IsPointInsideEllipse(Vector3 pos, Vector3 centerPos)
+    {
+        float a = splitDistance.x /1f;
+        float b = splitDistance.y  / 1f;
+        float dx = pos.x - centerPos.x;
+        float dy = pos.z - centerPos.z;
+
+        return (dx * dx) / (a * a) + (dy * dy) / (b * b) <= 1;
     }
 }

@@ -14,9 +14,11 @@ public class Bullet : MonoBehaviour
     public float lifeTime = 5;
     public float elaspedTime = 0;
 
+    public int dmg = 5;
+
     private void Start()
     {
-        //GetComponent<Rigidbody>().AddForce(direction * actualSpeed);
+
     }
 
     public void SetUp(Vector3 pDirection, float pPower)
@@ -30,9 +32,27 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         elaspedTime += Time.deltaTime;
-        if (elaspedTime >= lifeTime) 
+        if (elaspedTime >= lifeTime)
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Hit smth");
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.transform.GetComponent<EnemyLife>().TakesDmg(dmg);
+            Destroy(gameObject);
+        }
+
+
     }
 }
