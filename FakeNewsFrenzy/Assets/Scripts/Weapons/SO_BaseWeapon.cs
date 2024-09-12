@@ -17,6 +17,9 @@ public class SO_BaseWeapon : ScriptableObject
     /// </summary>
     [SerializeField] public float fireRate;
 
+    [SerializeField] public float bulletPerReload;
+    [SerializeField] public float ReloadTime;
+
     [SerializeField] public float power;
 
     [SerializeField] protected int bulletPerShot;
