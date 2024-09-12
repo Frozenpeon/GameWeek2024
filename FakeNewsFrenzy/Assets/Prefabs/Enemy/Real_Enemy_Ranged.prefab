@@ -69,7 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 6206687596803782517}
   _TargetPos: {x: 0, y: 0, z: 0}
-  EnemyWeaponPicker: {fileID: 0}
+  EnemyWeaponPicker: {fileID: 3855427219386194486}
+  sprites: {fileID: 0}
 --- !u!1 &2608104148300863183
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +322,10 @@ MonoBehaviour:
   playerPos: {x: 0, y: 0, z: 0}
   navmeshAgent: {fileID: 2193216320354903317}
   playerDetected: 0
+  meleeHitbox: {fileID: 0}
   sprites: {fileID: 3639574052709190795}
+  distanceToAttack: 8
+  _Speed: 3.5
 --- !u!1001 &7208171963591928507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -378,6 +382,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d103613c3f2bb924ea3ee46544e5e6e0, type: 3}
+    - target: {fileID: 7718452784309062702, guid: 872f9d580633e2f45b716bf5e8b6fedb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718452784309062702, guid: 872f9d580633e2f45b716bf5e8b6fedb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718452784309062702, guid: 872f9d580633e2f45b716bf5e8b6fedb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
