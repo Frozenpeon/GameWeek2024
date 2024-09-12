@@ -14,6 +14,8 @@ public class EnemyWeaponPicker : MonoBehaviour
 
     WeaponHandler activWeapon;
 
+
+
     public EnemySprites spriteHandler;
 
     private void Start()

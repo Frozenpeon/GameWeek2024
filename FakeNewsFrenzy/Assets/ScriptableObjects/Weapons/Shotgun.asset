@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   Type: 1
-  bullet: {fileID: 5453886261738243869, guid: 557c27450efa99442a5aa04bdb4e2336, type: 3}
+  bullet: {fileID: 5453886261738243869, guid: 5a6b5463896dab54a856da2f31f486b6, type: 3}
   spread: 20
   fireRate: 0.5
   power: 100
