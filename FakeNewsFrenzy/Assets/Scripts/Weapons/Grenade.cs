@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
+    public static event Action explode;
+
     [SerializeField]
     private float timeBeforeExplosion;
 
@@ -66,6 +68,7 @@ public class Grenade : MonoBehaviour
             if (go.gameObject != null)
                 go.GetComponent<EnemyLife>().TakesDmg(Damage);
         }
+        explode.Invoke();
         StopAllCoroutines();
         Destroy(gameObject);
     }

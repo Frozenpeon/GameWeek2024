@@ -114,14 +114,16 @@ public class Movement : MonoBehaviour
     public void StartPush()
     {
         isBeingPushed = true;
-        spriteChanger.ShowStun();
+        if (!GetComponent<PlayerLife>().dead)
+            spriteChanger.ShowStun();
         StartCoroutine(WaitToBePush());
     }
 
     IEnumerator WaitToBePush()
     {
         yield return new WaitForSeconds(1.2f);
-        spriteChanger.ShowWeapon();
+        if (!GetComponent<PlayerLife>().dead)
+            spriteChanger.ShowWeapon();
         isBeingPushed = false;
     }
 

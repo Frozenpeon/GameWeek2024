@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class WeaponHandler : MonoBehaviour
 
     [HideInInspector] public Gamepad gamepad;
 
+    public event Action<float> shoot;
+
     private int bulletCount;
     private bool isReloading;
 
@@ -28,7 +31,8 @@ public class WeaponHandler : MonoBehaviour
     }
     void Update()
     {
-        if (isShooting && !isReloading) Shoot(gamepad);
+        if (isShooting && !isReloading) 
+            Shoot(gamepad);
         elapsedTime += Time.deltaTime;
 
     }
@@ -40,14 +44,14 @@ public class WeaponHandler : MonoBehaviour
     {
         if (elapsedTime <= weapon.fireRate)
             return;
+        elapsedTime = 0;
         weapon.Fire(firePosiion.right, firePosiion.position);
         if (pGamepad != null)
         {
             RumbleManager.instance.StartShaking(pGamepad, weapon.power / 100, weapon.power / 100, 0.1f);
         }
-        elapsedTime = 0;
+        shoot.Invoke(weapon.power);      
         ++bulletCount;
-
         if(weapon.bulletPerReload <= bulletCount)
         {
             StartCoroutine(Reloading());
