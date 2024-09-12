@@ -52,12 +52,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b47165ca7afe0c478eaa1fedb06747e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Speed: 20
+  _Speed: 35
   _RollDistance: 5
   _RollSpeed: 60
   _PlayerIndex: 0
   canMoveWithMouse: 0
   _Cam: {fileID: 0}
+  GrenadeCount: 0
+  maxGrenades: 1
 --- !u!33 &7156754089479998176
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -210,3 +212,4 @@ MonoBehaviour:
   _StartLifePoint: 2
   _InvicibleTime: 3
   _ReviveZoneCollider: {fileID: 0}
+  myIH: {fileID: 0}

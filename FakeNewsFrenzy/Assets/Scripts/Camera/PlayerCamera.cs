@@ -15,7 +15,7 @@ public class PlayerCamera : MonoBehaviour
 
     [SerializeField] private float _TimeToLerp = .5f;
 
-    public static float _CameraHeight = 30;
+    public static float _CameraHeight = 60;
 
     private void Start()
     {
