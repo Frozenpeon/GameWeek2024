@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7206627465127557960, guid: caeebe137302ee949a87f849c5c1f9f5, type: 3}
       propertyPath: m_Name
-      value: Player1WeaponContainer Variant
+      value: Player2WeaponContainer
       objectReference: {fileID: 0}
     - target: {fileID: 8555339161938496359, guid: caeebe137302ee949a87f849c5c1f9f5, type: 3}
       propertyPath: m_LocalPosition.x
