@@ -15,14 +15,12 @@ public class GenadeLauncher : MonoBehaviour
     private void Start()
     {
        parent = transform.parent.GetComponent<Movement>();
+       parent.grenadeLauncher = this;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(1))
-        {
-            ThrowAGrenade();
-        }
+        
     }
 
     public void ThrowAGrenade()

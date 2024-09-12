@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Grenade : MonoBehaviour
@@ -19,11 +20,16 @@ public class Grenade : MonoBehaviour
 
     private List<PushableObject> pushObjects = new List<PushableObject>();
 
+    private List<EnemyLife> enmiesToKill = new List<EnemyLife>();
+
     float elapsedTime  = 0;
 
     public SpriteRenderer nade_Sprite;
 
     public float baseTimerBling = 0.5f;
+
+    public int Damage = 10;
+
 
     Coroutine corou;
 
@@ -51,6 +57,11 @@ public class Grenade : MonoBehaviour
             force.y = 0;
             objToPush.Push(force, power, transform);
         }
+
+        foreach (EnemyLife go in enmiesToKill)
+        {
+            go.TakesDmg(Damage);
+        }
         StopAllCoroutines();
         Destroy(gameObject);
     }
@@ -61,6 +72,10 @@ public class Grenade : MonoBehaviour
         {
             pushObjects.Add(other.GetComponent<PushableObject>());
         }
+        if (other.GetComponent<EnemyLife>() != null)
+        {
+            enmiesToKill.Add(other.GetComponent<EnemyLife>());
+        }
        
     }
 
@@ -69,6 +84,10 @@ public class Grenade : MonoBehaviour
         if (other.GetComponent<PushableObject>() != null)
         {
             pushObjects.Remove(other.GetComponent<PushableObject>());
+        }
+        if (other.GetComponent<EnemyLife>() != null)
+        {
+            enmiesToKill.Remove(other.GetComponent<EnemyLife>());
         }
     }
 
