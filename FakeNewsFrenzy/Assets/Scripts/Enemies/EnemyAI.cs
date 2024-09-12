@@ -59,16 +59,11 @@ public class EnemyAI : MonoBehaviour
                 navmeshAgent.isStopped = false;
             }
             else navmeshAgent.isStopped = true;
-
+            if (Input.GetMouseButtonDown(0) || navmeshAgent.remainingDistance <= distanceToAttack)
+            {
+                Shoot();
+            }
         }
-
-        if (Input.GetMouseButtonDown(0) || navmeshAgent.remainingDistance <= distanceToAttack)
-        {
-            Shoot();
-        }
-
-
-
     }
 
     private IEnumerator ShowHitbox ()

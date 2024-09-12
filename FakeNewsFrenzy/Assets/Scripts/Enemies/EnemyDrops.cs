@@ -25,15 +25,8 @@ public class EnemyDrops : MonoBehaviour
     void Start()
     {
         currentWeapon = transform.GetChild(0).GetComponent<EnemyWeaponPicker>().activWeapon;
+        if (currentWeapon != null ) 
         weaponLoot = currentWeapon.weapon.objectDrop;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Used to debug and test
-        if (Input.GetKeyDown(KeyCode.Space))
-            onDeathDrop();
     }
 
 
