@@ -1228,7 +1228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2318280292768190472, guid: c68e703405334ae4bb5a5b5a2fe95c4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2978126682765470725, guid: c68e703405334ae4bb5a5b5a2fe95c4e, type: 3}
       propertyPath: m_Sprite
@@ -1534,6 +1534,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1434494137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4336102794800322480, guid: 4caa97ac43945ae408b7e1332a05540d, type: 3}
+  m_PrefabInstance: {fileID: 6883989442788788365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1525024680 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1828544505282538875, guid: 3c347da4437bc0545abb7e7135a10fa7, type: 3}
@@ -3184,6 +3189,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1841486944}
+    - target: {fileID: 2458154802867541345, guid: e6d9c4d7f65098448a33b6ff694915df, type: 3}
+      propertyPath: nextScreen
+      value: 
+      objectReference: {fileID: 1434494137}
     - target: {fileID: 4284500353787898570, guid: e6d9c4d7f65098448a33b6ff694915df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
