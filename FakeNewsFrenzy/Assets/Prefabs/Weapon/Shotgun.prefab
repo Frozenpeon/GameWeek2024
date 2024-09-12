@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6152989897459018840}
   - component: {fileID: 1268976291996773478}
+  - component: {fileID: 4192672406546272495}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -80,7 +81,21 @@ MonoBehaviour:
   firePosiion: {fileID: 2924505896406576205}
   SOWeapon: {fileID: 11400000, guid: ccb14a64f94185d4290aa3a4a13e849d, type: 2}
   weapon: {fileID: 11400000, guid: ccb14a64f94185d4290aa3a4a13e849d, type: 2}
+  elapsedTime: 0
   isShooting: 0
+  idShooter: -1
+--- !u!114 &4192672406546272495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440975721420922907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8655454132473689543
 GameObject:
   m_ObjectHideFlags: 0

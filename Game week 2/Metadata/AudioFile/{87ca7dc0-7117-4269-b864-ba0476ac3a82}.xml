@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{87ca7dc0-7117-4269-b864-ba0476ac3a82}">
+		<property name="assetPath">
+			<value>Sound Design/Player/Shoot_rifle-003.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.75</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ba06e7b0-7df8-4a15-b7d6-d148404102e9}</destination>
+		</relationship>
+	</object>
+</objects>

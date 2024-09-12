@@ -1,13 +1,21 @@
+using FMODUnity;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
+    public static List<PlayerLife> list = new List<PlayerLife>();
+
+    public bool dead = false;
     [SerializeField] private int _StartLifePoint = 2;
     [SerializeField] private float _InvicibleTime = 3;
     [SerializeField] private Collider _ReviveZoneCollider;
     private int _LifePoint;
+
+    [SerializeField] private EventReference hitPlayerSound;
+    [SerializeField] private EventReference deathPlayerSound;
 
     [HideInInspector] public InputHandler myIH;
 
@@ -22,6 +30,7 @@ public class PlayerLife : MonoBehaviour
     private void Start()
     {
         _LifePoint = _StartLifePoint;
+        list.Add(this);
     }
 
     public void Update()
@@ -48,12 +57,16 @@ public class PlayerLife : MonoBehaviour
             GetComponent<Movement>().spriteChanger.ShowDeath();
             GetComponent<Movement>().enabled = false;
             _ReviveZoneCollider.enabled = true;
-
+            dead = true;
+            GameManager.PlayerDead.Invoke();
             return;
         }
 
         //Dégats
         Debug.Log("Tu t'es pris un dégats chakal, prudence est mère de sureté n'oublie jamais");
+        
+        GetComponent<SoundEmmiter>().PlaySound(hitPlayerSound);
+        GetComponent<SoundEmmiter>().PlaySound(deathPlayerSound);
 
         StartCoroutine(WaitInvicible());
         blinkCoroutine = StartCoroutine(BlinkPlayer());
@@ -61,10 +74,12 @@ public class PlayerLife : MonoBehaviour
 
     public void Revive()
     {
+        GameManager.PlayerRevive.Invoke();
         _ReviveZoneCollider.enabled = false;
         GetComponent<Movement>().enabled = true;
         GetComponent<Movement>().spriteChanger.ShowWeapon();
         _LifePoint = _StartLifePoint;
+        dead = false;
     }
 
     IEnumerator WaitInvicible()
@@ -91,7 +106,7 @@ public class PlayerLife : MonoBehaviour
                 }
             }
             color = child.GetComponent<Renderer>().material.color;
-            child.GetComponent<Renderer>().material.color = new UnityEngine.Color(color.r, color.g, color.b, Mathf.Lerp(1f, .5f, Mathf.Cos(_count * 5) / 2 + .5f));
+            child.GetComponent<Renderer>().material.color = new UnityEngine.Color(Mathf.Lerp(1f, .5f, Mathf.Cos(_count * 5) / 2 + .5f), color.g, color.b, 1.0f);
             _count += Time.deltaTime;
             yield return null;
         }
@@ -117,7 +132,10 @@ public class PlayerLife : MonoBehaviour
     }
 
 
-
+    private void OnDestroy()
+    {
+        list.Remove(this);
+    }
 
 
 

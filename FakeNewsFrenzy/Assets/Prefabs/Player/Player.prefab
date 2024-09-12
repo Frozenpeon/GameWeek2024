@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5927038488198406490}
   - component: {fileID: 3200455764107261699}
   - component: {fileID: 5465662335648512358}
+  - component: {fileID: 8928124325906367920}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -57,9 +58,21 @@ MonoBehaviour:
   _RollSpeed: 60
   _PlayerIndex: 0
   canMoveWithMouse: 0
+  isBeingPushed: 0
   _Cam: {fileID: 0}
   GrenadeCount: 0
   maxGrenades: 1
+  footStepFrequency: 0.2
+  WeaponSwapper: {fileID: 0}
+  grenadeLauncher: {fileID: 0}
+  spriteChanger: {fileID: 0}
+  footStep:
+    Guid:
+      Data1: 2056374105
+      Data2: 1259629438
+      Data3: 270256831
+      Data4: 321350089
+    Path: event:/Footsteps
 --- !u!33 &7156754089479998176
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -145,6 +158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031cac15bec9bee4989ed6afe1c4a0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cacPlayerSound:
+    Guid:
+      Data1: 1070945012
+      Data2: 1143329919
+      Data3: -1196072822
+      Data4: -1709466850
+    Path: event:/Cac_player
 --- !u!114 &461768436862329872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +229,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fd1b7ae98d014a8dcb39356616cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
   _StartLifePoint: 2
   _InvicibleTime: 3
   _ReviveZoneCollider: {fileID: 0}
+  hitPlayerSound:
+    Guid:
+      Data1: 71458220
+      Data2: 1246555145
+      Data3: 1807856302
+      Data4: 1376430984
+    Path: event:/Hit_player
+  deathPlayerSound:
+    Guid:
+      Data1: -528407106
+      Data2: 1136291762
+      Data3: 958021024
+      Data4: -2027147748
+    Path: event:/Death_player
   myIH: {fileID: 0}
+  spriteContainer: {fileID: 0}
+--- !u!114 &8928124325906367920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2858638623084218628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

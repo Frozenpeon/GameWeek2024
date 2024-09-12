@@ -6,6 +6,8 @@ Shader "Unlit/PostProcessSplitScreen"
 		_FirstCamTex ("First Camera RT", 2D) = "white" {}
 		_SecondCamTex ("First Camera RT", 2D) = "white" {}
 
+		_CameraSplit ("CameraSplit", float) = 0
+
 		_VectorDir("Vector Dir", Vector) =  (0,0,0,0)
     }
     SubShader
@@ -36,6 +38,7 @@ Shader "Unlit/PostProcessSplitScreen"
             sampler2D _SecondCamTex;
             float4 _MainTex_ST;
 			float4 _VectorDir;
+			float _CameraSplit;
 
             v2f vert (appdata v)
             {
@@ -49,7 +52,7 @@ Shader "Unlit/PostProcessSplitScreen"
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
 				float greyScale =  step(0,dot(_VectorDir.xy, i.uv - float2(.5,.5)));
-                return step(greyScale, .5) * tex2D(_FirstCamTex,i.uv) + step(.5,greyScale) * tex2D(_SecondCamTex,i.uv);
+                return step(greyScale, .5) * tex2D(_FirstCamTex,i.uv) + step(.5,greyScale) * tex2D(_SecondCamTex,i.uv) - _CameraSplit * (1- step(.002, abs(dot(_VectorDir.xy, i.uv - float2(.5,.5)))));
             }
             ENDCG
         }

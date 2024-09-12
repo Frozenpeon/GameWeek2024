@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 6206687596803782517}
   - component: {fileID: 2768427872774133096}
   - component: {fileID: 7092407875760398918}
+  - component: {fileID: 5755161515328415220}
   m_Layer: 7
   m_Name: Real_Enemy_Ranged
   m_TagString: Enemy
@@ -341,6 +342,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 10
+  hitEnemySound:
+    Guid:
+      Data1: -527081110
+      Data2: 1290958815
+      Data3: -1687833696
+      Data4: 668900932
+    Path: event:/Hit_enemy
 --- !u!114 &7092407875760398918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,8 +363,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDropRate: 50
   grenadeDropRate: 20
-  currentWeapon: {fileID: 0}
   grenadeLoot: {fileID: 5835729711838785204, guid: 00a72113258a7bc4c8d767445f75fe62, type: 3}
+--- !u!114 &5755161515328415220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359950261989557048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7208171963591928507
 PrefabInstance:
   m_ObjectHideFlags: 0

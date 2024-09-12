@@ -1,10 +1,11 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PushAttack : MonoBehaviour
 {
-
+    [SerializeField] private EventReference cacPlayerSound;
     private void Update()
     {
         Debug.DrawRay(transform.position, transform.forward);
@@ -13,7 +14,12 @@ public class PushAttack : MonoBehaviour
 
     public void OnAttack()
     {
-        //GetComponent<Movement>().spriteChanger.ShowAttack();
+        if (GetComponent<Movement>().isBeingPushed)
+            return;
+
+        GetComponent<SoundEmmiter>().PlaySound(cacPlayerSound);
+
+        GetComponent<Movement>().spriteChanger.ShowAttack();
 
         Collider[] colliders = Physics.OverlapBox(transform.position + transform.forward * 3,new Vector3(3,6,3));
 

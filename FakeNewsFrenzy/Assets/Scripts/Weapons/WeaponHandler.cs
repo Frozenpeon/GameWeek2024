@@ -1,3 +1,5 @@
+using System;
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +24,8 @@ public class WeaponHandler : MonoBehaviour
 
     [HideInInspector] public Gamepad gamepad;
 
+    public event Action<float> shoot;
+
     private int bulletCount;
     private bool isReloading;
 
@@ -34,7 +38,8 @@ public class WeaponHandler : MonoBehaviour
     }
     void Update()
     {
-        if (isShooting && !isReloading) Shoot(gamepad);
+        if (isShooting && !isReloading) 
+            Shoot(gamepad);
         elapsedTime += Time.deltaTime;
         if(isReloading){
             reloadTimer += Time.deltaTime;
@@ -44,6 +49,7 @@ public class WeaponHandler : MonoBehaviour
 
 
      public void Reload(){
+        GetComponent<SoundEmmiter>().PlaySound(weapon.reloadSound);
         StartCoroutine(Reloading());
     }
 
@@ -56,14 +62,17 @@ public class WeaponHandler : MonoBehaviour
     {
         if (elapsedTime <= weapon.fireRate)
             return;
+        elapsedTime = 0;
         weapon.Fire(firePosiion.right, firePosiion.position);
         if (pGamepad != null)
         {
             RumbleManager.instance.StartShaking(pGamepad, weapon.power / 100, weapon.power / 100, 0.1f);
         }
-        elapsedTime = 0;
         ++bulletCount;
+        GetComponent<SoundEmmiter>().PlaySound(weapon.shotSound);
+        Debug.Log(weapon.shotSound);
 
+        if (weapon.bulletPerReload == 0) return;
         if(weapon.bulletPerReload <= bulletCount)
         {
             Reload();
@@ -79,7 +88,6 @@ public class WeaponHandler : MonoBehaviour
         reloadSliderContainer.SetActive(true);
         yield return new WaitForSeconds(weapon.ReloadTime);
         reloadSliderContainer.SetActive(false);
-        Debug.Log(reloadSlider.value +" ");
         reloadTimer = 0;
         reloadSlider.value = reloadTimer;
         bulletCount = 0;

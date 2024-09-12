@@ -18,10 +18,18 @@ public class PlayerCamera : MonoBehaviour
 
     private Vector3 _NextPos;
 
+    public WeaponHandler AR;
+    public WeaponHandler shotGun;
+    public WeaponHandler pistol;
+
     private void Start()
     {
         cameras.Add(this);
         doAction = DoActionBetween;
+        Grenade.explode += StartShakeCam;
+        AR.shoot += StartShakeCamWeapon;
+        shotGun.shoot += StartShakeCamWeapon;
+        pistol.shoot += StartShakeCamWeapon;
     }
 
     private void Update()
@@ -35,8 +43,18 @@ public class PlayerCamera : MonoBehaviour
         transform.position = _NextPos;
     }
 
+    public void StartShakeCamWeapon(float power)
+    {
+        //StartShakeCam(0.001f, 0.005f);
+    }
+
+    public void StartShakeCam()
+    {
+        StartShakeCam(2, 1);
+    }
     public void StartShakeCam(float _MaxShakeStrengh = 2, float _ShakeTime = 1)
     {
+        StopAllCoroutines();
         StartCoroutine(ShakeCam(2,1));
     }
 
