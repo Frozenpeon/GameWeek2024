@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
+    public bool dead = false;
     [SerializeField] private int _StartLifePoint = 2;
     [SerializeField] private float _InvicibleTime = 3;
     [SerializeField] private Collider _ReviveZoneCollider;
@@ -48,7 +49,7 @@ public class PlayerLife : MonoBehaviour
             GetComponent<Movement>().spriteChanger.ShowDeath();
             GetComponent<Movement>().enabled = false;
             _ReviveZoneCollider.enabled = true;
-
+            dead = true;
             return;
         }
 
@@ -65,6 +66,7 @@ public class PlayerLife : MonoBehaviour
         GetComponent<Movement>().enabled = true;
         GetComponent<Movement>().spriteChanger.ShowWeapon();
         _LifePoint = _StartLifePoint;
+        dead = false;
     }
 
     IEnumerator WaitInvicible()

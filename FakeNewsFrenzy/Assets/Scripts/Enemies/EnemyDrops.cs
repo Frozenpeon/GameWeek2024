@@ -24,15 +24,18 @@ public class EnemyDrops : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentWeapon = transform.GetChild(0).GetComponent<EnemyWeaponPicker>().activWeapon;
+        if (transform.GetChild(0).GetComponent<EnemyWeaponPicker>() != null) 
+            currentWeapon = transform.GetChild(0).GetComponent<EnemyWeaponPicker>().activWeapon;
         if (currentWeapon != null ) 
-        weaponLoot = currentWeapon.weapon.objectDrop;
+            weaponLoot = currentWeapon.weapon.objectDrop;
     }
 
 
     //Call this method when the enemy dies
     public void onDeathDrop()
     {
+        if (currentWeapon != null)
+        {
 
             int weaponResult = Random.Range(0, 101);
             if (weaponResult <= weaponDropRate)
@@ -41,8 +44,8 @@ public class EnemyDrops : MonoBehaviour
                 _WeaponLoot = Instantiate(weaponLoot);
                 _WeaponLoot.transform.position = transform.position;
             }
-            else Debug.Log(weaponResult);
-       
+            //else Debug.Log(weaponResult);
+        }
 
             int grenadeResult = Random.Range(0, 101);
             if (grenadeResult <= grenadeDropRate)

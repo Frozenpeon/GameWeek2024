@@ -13,9 +13,15 @@ public class RumbleManager : MonoBehaviour
 
     private void Start()
     {
-        if (instance == null) { 
+        if (instance == null) 
+        { 
         instance = this;
-            }
+            Grenade.explode += () =>
+            {
+                StartShaking(Gamepad.all[0], 1f, 1f, 1f);
+                StartShaking(Gamepad.all[1], 1f, 1f, 1f);
+            };
+        }
     }
 
    /* private void Update()
