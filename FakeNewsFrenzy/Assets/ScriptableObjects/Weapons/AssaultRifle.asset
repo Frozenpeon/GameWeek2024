@@ -30,8 +30,8 @@ MonoBehaviour:
       Data4: -812639343
     Path: event:/Reload_rifle
   fireRate: 0.1
-  bulletPerReload: 0
-  ReloadTime: 0
+  bulletPerReload: 30
+  ReloadTime: 3
   power: 50
   bulletPerShot: 1
   objectDrop: {fileID: 2633961693336932874, guid: fa81444170f07a84ba2361344fcfe923, type: 3}

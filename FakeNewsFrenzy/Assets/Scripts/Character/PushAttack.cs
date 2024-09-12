@@ -1,10 +1,11 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PushAttack : MonoBehaviour
 {
-
+    [SerializeField] private EventReference cacPlayerSound;
     private void Update()
     {
         Debug.DrawRay(transform.position, transform.forward);
@@ -15,6 +16,8 @@ public class PushAttack : MonoBehaviour
     {
         if (GetComponent<Movement>().isBeingPushed)
             return;
+
+        GetComponent<SoundEmmiter>().PlaySound(cacPlayerSound);
 
         GetComponent<Movement>().spriteChanger.ShowAttack();
 

@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ public class Grenade : MonoBehaviour
 
     [SerializeField]
     private float power;
+
+    [SerializeField] private EventReference grenadeSound;
 
     [SerializeField]
     private SphereCollider rangeCollider;
@@ -70,6 +73,7 @@ public class Grenade : MonoBehaviour
         }
         explode.Invoke();
         StopAllCoroutines();
+        GetComponent<SoundEmmiter>().PlaySound(grenadeSound);
         Destroy(gameObject);
     }
 

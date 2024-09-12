@@ -51,10 +51,11 @@ public class WeaponHandler : MonoBehaviour
         {
             RumbleManager.instance.StartShaking(pGamepad, weapon.power / 100, weapon.power / 100, 0.1f);
         }
-        shoot.Invoke(weapon.power);      
         ++bulletCount;
         GetComponent<SoundEmmiter>().PlaySound(weapon.shotSound);
+        Debug.Log(weapon.shotSound);
 
+        if (weapon.bulletPerReload == 0) return;
         if(weapon.bulletPerReload <= bulletCount)
         {
             StartCoroutine(Reloading());

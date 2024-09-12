@@ -17,11 +17,11 @@ MonoBehaviour:
   spread: 0.5
   shotSound:
     Guid:
-      Data1: -1724677764
-      Data2: 1220079312
-      Data3: 208520363
-      Data4: 1780694450
-    Path: event:/Shoot_deagle
+      Data1: -1379099163
+      Data2: 1309224273
+      Data3: -95642710
+      Data4: 479135481
+    Path: event:/Enemy_shoot_deagle
   reloadSound:
     Guid:
       Data1: -2026193338
