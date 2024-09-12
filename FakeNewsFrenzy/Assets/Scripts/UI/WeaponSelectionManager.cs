@@ -7,7 +7,7 @@ public class WeaponSelectionManager : MonoBehaviour
 {
     private bool[] _IsWeaponsValid = new bool[2] {false, false };
 
-    public static WeaponType[] weapons = new WeaponType[2] { WeaponType.Pistol, WeaponType.Pistol};
+    public static WeaponType[] weapons = new WeaponType[2] { WeaponType.AR, WeaponType.AR};
 
     public void SetWeaponValidValue(int pIndex)
     {
