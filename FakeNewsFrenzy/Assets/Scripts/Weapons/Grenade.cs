@@ -23,6 +23,8 @@ public class Grenade : MonoBehaviour
 
     public SpriteRenderer nade_Sprite;
 
+    public float baseTimerBling = 0.5f;
+
     Coroutine corou;
 
     private void Start()
@@ -79,7 +81,7 @@ public class Grenade : MonoBehaviour
         while (true)
         {
             nade_Sprite.color = colorList[i++ % 2];
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds((timeBeforeExplosion - elapsedTime) / 4);
         }
     }
 
