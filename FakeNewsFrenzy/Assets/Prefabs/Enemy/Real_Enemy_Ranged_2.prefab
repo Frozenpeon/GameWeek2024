@@ -190,9 +190,10 @@ GameObject:
   - component: {fileID: 912559930186421265}
   - component: {fileID: 2193216320354903317}
   - component: {fileID: 6206687596803782517}
+  - component: {fileID: 8222792931454073219}
   m_Layer: 7
   m_Name: Real_Enemy_Ranged_2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
