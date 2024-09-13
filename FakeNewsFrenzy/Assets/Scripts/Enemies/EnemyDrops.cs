@@ -21,6 +21,8 @@ public class EnemyDrops : MonoBehaviour
     [SerializeField] GameObject grenadeLoot;
     private GameObject _GrenadeLoot;
 
+    private bool hasDroped;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,8 @@ public class EnemyDrops : MonoBehaviour
     //Call this method when the enemy dies
     public void onDeathDrop()
     {
+        if (hasDroped)
+            return;
         if (currentWeapon != null)
         {
 
@@ -55,7 +59,7 @@ public class EnemyDrops : MonoBehaviour
                 _GrenadeLoot.transform.position = transform.position + new Vector3(0,1f,0);
             }
             else Debug.Log(grenadeResult);
-
+        hasDroped = true;
         Destroy(gameObject);
     }
 }
