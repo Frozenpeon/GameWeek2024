@@ -31,7 +31,7 @@ MonoBehaviour:
     Path: event:/Reload_shotgun
   fireRate: 0.5
   bulletPerReload: 2
-  ReloadTime: 3
+  ReloadTime: 1.25
   power: 100
   bulletPerShot: 20
   objectDrop: {fileID: 5245571686393628309, guid: 970fefbc9ad64af40aedc2e3d5a45ce9, type: 3}
