@@ -17,6 +17,7 @@ public class PassivEnemy : MonoBehaviour
 
     private void Start()
     {
+        i = Random.Range(0, 3);
         if (isTyping)
             corou = StartCoroutine(idle());
         else
