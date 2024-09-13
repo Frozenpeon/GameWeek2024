@@ -14,7 +14,7 @@ public class PushAttack : MonoBehaviour
 
     public void OnAttack()
     {
-        if (GetComponent<Movement>().isBeingPushed)
+        if (GetComponent<Movement>().isBeingPushed || GetComponent<PlayerLife>().dead)
             return;
 
         GetComponent<SoundEmmiter>().PlaySound(cacPlayerSound);
