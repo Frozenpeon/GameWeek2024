@@ -226,9 +226,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 154e9079319e7cf4c92456febfe1afdf, type: 3}
-  - {fileID: 21300000, guid: 103e521bf4928cc4a88c1f4a1d7162e9, type: 3}
+  - {fileID: 21300000, guid: 4b37eca8e13e5114d996797f6cc4e64b, type: 3}
+  - {fileID: 21300000, guid: 75570d375c045dc40b4e5da3a8e95199, type: 3}
+  - {fileID: 21300000, guid: c4df9f8b920336a4ea0868ff07c119fe, type: 3}
+  plot: {fileID: 21300000, guid: 11bbb08e3ed3e5348b25d7611953770f, type: 3}
   spriteRenderer: {fileID: 2978599711941799432}
+  isTyping: 1
 --- !u!212 &2978599711941799432
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -270,7 +273,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 154e9079319e7cf4c92456febfe1afdf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 11bbb08e3ed3e5348b25d7611953770f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

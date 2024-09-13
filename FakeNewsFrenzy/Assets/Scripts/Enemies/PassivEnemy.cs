@@ -6,13 +6,21 @@ public class PassivEnemy : MonoBehaviour
 {
     public List<Sprite> sprites;
 
+    public Sprite plot;
+
     public SpriteRenderer spriteRenderer;
 
     Coroutine corou;
 
+    public bool isTyping = true;
+
+
     private void Start()
     {
-        corou = StartCoroutine(idle());
+        if (isTyping)
+            corou = StartCoroutine(idle());
+        else
+            spriteRenderer.sprite = plot;
     }
 
     int i = 0;
