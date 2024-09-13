@@ -11,7 +11,7 @@ public class EnemyLife : MonoBehaviour
     {
         life -= amount;
 
-        GetComponent<SoundEmmiter>().PlaySound(hitEnemySound);
+        GetComponent<SoundEmmiter>().PlaySound(hitEnemySound);  
 
         if (life <= 0)
             GetComponent<EnemyDrops>().onDeathDrop() ;

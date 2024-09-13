@@ -190,7 +190,7 @@
                 {
                     "name": "",
                     "id": "837af12a-d23e-4aec-bbde-aca69b2df289",
-                    "path": "<Gamepad>/leftStickPress",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
