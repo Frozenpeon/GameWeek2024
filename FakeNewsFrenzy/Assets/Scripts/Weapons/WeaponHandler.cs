@@ -31,10 +31,16 @@ public class WeaponHandler : MonoBehaviour
 
     public int idShooter = -1;
 
+    private bool canReaload = false;
+
     private void Start()
     {
         weapon = Instantiate(SOWeapon);
-        reloadSlider = reloadSliderContainer.GetComponentInChildren<Slider>();
+        if (reloadSliderContainer != null)
+        {
+            reloadSlider = reloadSliderContainer.GetComponentInChildren<Slider>();
+            canReaload = true;
+        }
     }
     void Update()
     {
@@ -49,6 +55,8 @@ public class WeaponHandler : MonoBehaviour
 
 
      public void Reload(){
+        if (!canReaload)
+
         GetComponent<SoundEmmiter>().PlaySound(weapon.reloadSound);
         StartCoroutine(Reloading());
     }
