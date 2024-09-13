@@ -56,6 +56,7 @@ public class InputHandler : MonoBehaviour
 
     public void OnPush(InputAction.CallbackContext obj)
     {
+        if (!obj.started) return;
         if (_Movement != null) _Movement.GetComponent<PushAttack>().OnAttack();
     }
 
