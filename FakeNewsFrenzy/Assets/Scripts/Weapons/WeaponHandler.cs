@@ -27,14 +27,20 @@ public class WeaponHandler : MonoBehaviour
     public event Action<float> shoot;
 
     private int bulletCount;
-    private bool isReloading;
+    [HideInInspector] public bool isReloading;
 
     public int idShooter = -1;
+
+    private bool canReaload = false;
 
     private void Start()
     {
         weapon = Instantiate(SOWeapon);
-        reloadSlider = reloadSliderContainer.GetComponentInChildren<Slider>();
+        if (reloadSliderContainer != null)
+        {
+            reloadSlider = reloadSliderContainer.GetComponentInChildren<Slider>();
+            canReaload = true;
+        }
     }
     void Update()
     {
@@ -49,6 +55,8 @@ public class WeaponHandler : MonoBehaviour
 
 
      public void Reload(){
+        if (!canReaload)
+
         GetComponent<SoundEmmiter>().PlaySound(weapon.reloadSound);
         StartCoroutine(Reloading());
     }
@@ -77,7 +85,7 @@ public class WeaponHandler : MonoBehaviour
         {
             Reload();
         }
-    }
+    } 
 
    
 
@@ -102,4 +110,12 @@ public class WeaponHandler : MonoBehaviour
         return isReloading;
     }
 
+    private void OnDisable()
+    {
+        reloadSliderContainer.SetActive(false);
+        reloadTimer = 0;
+        reloadSlider.value = reloadTimer;
+        bulletCount = 0;
+        isReloading = false;
+    }
 }
