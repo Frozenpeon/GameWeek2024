@@ -89,5 +89,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _VectorDir: {r: -0.65589017, g: -0.7548563, b: 0, a: 0}
+    - _VectorDir: {r: -0.9994855, g: 0.03207458, b: 0, a: 0}
   m_BuildTextureStacks: []
