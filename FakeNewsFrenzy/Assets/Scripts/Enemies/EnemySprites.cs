@@ -26,6 +26,7 @@ public class EnemySprites : MonoBehaviour
     private void Start()
     {
         //ShowedSprite.sprite = chill[0];    
+        i = Random.Range(0, 3);
     }
 
     int i = 0;
