@@ -112,6 +112,9 @@ public class WeaponHandler : MonoBehaviour
 
     private void OnDisable()
     {
+        if (!canReaload)
+            return;
+        
         reloadSliderContainer.SetActive(false);
         reloadTimer = 0;
         reloadSlider.value = reloadTimer;
