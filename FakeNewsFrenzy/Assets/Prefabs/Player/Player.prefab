@@ -165,6 +165,10 @@ MonoBehaviour:
       Data3: -1196072822
       Data4: -1709466850
     Path: event:/Cac_player
+  weapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &461768436862329872
 MonoBehaviour:
   m_ObjectHideFlags: 0
