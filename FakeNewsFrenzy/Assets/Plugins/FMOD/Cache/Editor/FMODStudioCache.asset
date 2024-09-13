@@ -256,10 +256,10 @@ MonoBehaviour:
   Path: ../Game week 2/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638618168711249389
+  lastModified: 638618215118474946
   FileSizes:
   - Name: Desktop
-    Value: 8805984
+    Value: 8806656
   Exists: 1
 --- !u!114 &-408711048061599791
 MonoBehaviour:
@@ -358,7 +358,7 @@ MonoBehaviour:
   - {fileID: -2925804036027051615}
   StringsBanks:
   - {fileID: 8116156985415566562}
-  cacheTime: 638618168711259410
+  cacheTime: 638618215118494947
   cacheVersion: 131619
 --- !u!114 &9882979221090484
 MonoBehaviour:
@@ -670,10 +670,10 @@ MonoBehaviour:
   Path: ../Game week 2/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638618168711259410
+  lastModified: 638618215118494947
   FileSizes:
   - Name: Desktop
-    Value: 1828
+    Value: 2014
   Exists: 1
 --- !u!114 &8761570980975629366
 MonoBehaviour:
