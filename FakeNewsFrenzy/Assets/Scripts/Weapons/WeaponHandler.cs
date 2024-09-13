@@ -27,7 +27,7 @@ public class WeaponHandler : MonoBehaviour
     public event Action<float> shoot;
 
     private int bulletCount;
-    private bool isReloading;
+    [HideInInspector] public bool isReloading;
 
     public int idShooter = -1;
 
@@ -77,7 +77,7 @@ public class WeaponHandler : MonoBehaviour
         {
             Reload();
         }
-    }
+    } 
 
    
 
@@ -102,4 +102,12 @@ public class WeaponHandler : MonoBehaviour
         return isReloading;
     }
 
+    private void OnDisable()
+    {
+        reloadSliderContainer.SetActive(false);
+        reloadTimer = 0;
+        reloadSlider.value = reloadTimer;
+        bulletCount = 0;
+        isReloading = false;
+    }
 }

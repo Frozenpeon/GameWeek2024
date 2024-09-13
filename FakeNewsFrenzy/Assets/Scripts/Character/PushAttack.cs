@@ -6,6 +6,8 @@ using UnityEngine;
 public class PushAttack : MonoBehaviour
 {
     [SerializeField] private EventReference cacPlayerSound;
+    [SerializeField] private List<WeaponHandler> weapons = new List<WeaponHandler>();
+
     private void Update()
     {
         Debug.DrawRay(transform.position, transform.forward);
@@ -16,6 +18,11 @@ public class PushAttack : MonoBehaviour
     {
         if (GetComponent<Movement>().isBeingPushed || GetComponent<PlayerLife>().dead)
             return;
+
+        foreach (WeaponHandler weapon in weapons)
+        {
+            if (weapon.isReloading) return;
+        }
 
         GetComponent<SoundEmmiter>().PlaySound(cacPlayerSound);
 
