@@ -14,7 +14,12 @@ public class EnemyLife : MonoBehaviour
         GetComponent<SoundEmmiter>().PlaySound(hitEnemySound);
 
         if (life <= 0)
-            GetComponent<EnemyDrops>().onDeathDrop() ;
+            if (GetComponent<EnemyDrops>() != null)
+            {
+                GetComponent<EnemyDrops>().onDeathDrop();
+            }
+            else
+                Destroy(transform.parent.gameObject);
     }
 
 }
