@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,16 @@ public class GameManager : MonoBehaviour
     {
         PlayerDead.AddListener(CheckPlayerAlive);
         PlayerRevive.AddListener(CheckPlayerAlive);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+        }
     }
 
     private void CheckPlayerAlive()
