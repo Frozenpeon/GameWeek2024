@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
             if(!pf.dead) countPlayerAlive++;
         }
         SoundManager.AddParametersToMusic(2 - countPlayerAlive);
+
+        if (countPlayerAlive == 0) GameOverScreen.GameOverEvent.Invoke();
     }
 
     private void OnDestroy()
