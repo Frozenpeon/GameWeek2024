@@ -187,12 +187,12 @@ GameObject:
   - component: {fileID: 1561434032773556583}
   - component: {fileID: 2822038144473240803}
   - component: {fileID: 6383203104498523203}
-  - component: {fileID: 912559930186421265}
   - component: {fileID: 2193216320354903317}
   - component: {fileID: 6206687596803782517}
   - component: {fileID: 2768427872774133096}
   - component: {fileID: 7092407875760398918}
   - component: {fileID: 5755161515328415220}
+  - component: {fileID: 2915578474743467598}
   m_Layer: 7
   m_Name: Real_Enemy_Ranged
   m_TagString: Enemy
@@ -267,27 +267,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &912559930186421265
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7359950261989557048}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &2193216320354903317
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -376,6 +355,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cfc4ce6a2734e4d940e3389aa0f935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &2915578474743467598
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359950261989557048}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 16.64
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7208171963591928507
 PrefabInstance:
   m_ObjectHideFlags: 0

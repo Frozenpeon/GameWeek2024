@@ -187,12 +187,12 @@ GameObject:
   - component: {fileID: 1561434032773556583}
   - component: {fileID: 2822038144473240803}
   - component: {fileID: 6383203104498523203}
-  - component: {fileID: 912559930186421265}
   - component: {fileID: 2193216320354903317}
   - component: {fileID: 6206687596803782517}
   - component: {fileID: 6383829132498808753}
   - component: {fileID: 2916654669352218455}
   - component: {fileID: 4911691238945722233}
+  - component: {fileID: 9148475589682205481}
   m_Layer: 7
   m_Name: Real_Enemy_Mele 1
   m_TagString: Enemy
@@ -267,27 +267,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &912559930186421265
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7359950261989557048}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &2193216320354903317
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -376,6 +355,29 @@ MonoBehaviour:
       Data3: -1687833696
       Data4: 668900932
     Path: event:/Hit_enemy
+--- !u!136 &9148475589682205481
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359950261989557048}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 16.64
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8021837032324075699
 GameObject:
   m_ObjectHideFlags: 0
